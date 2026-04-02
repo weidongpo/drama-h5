@@ -107,6 +107,7 @@
             <div class="drama-cover">
               <van-image :src="drama.cover" fit="cover" class="cover-image" />
               <div class="vip-tag" v-if="drama.isVip">VIP</div>
+              <div class="price-tag" v-else>¥{{ drama.price }}</div>
               <div class="update-tag">{{ drama.status === 'completed' ? '全' : '更新至' }}{{ drama.episodes }}集</div>
             </div>
             <div class="drama-title">{{ drama.title }}</div>
@@ -456,6 +457,18 @@ function handleMoreClick() {
   font-size: 10px;
   font-weight: 600;
   color: #000;
+}
+
+.price-tag {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: rgba(255, 71, 87, 0.9);
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
 }
 
 .update-tag {

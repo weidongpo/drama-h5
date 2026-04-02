@@ -24,13 +24,13 @@
         <h3>📺 选集播放 (共{{ drama.episodes }}集)</h3>
         <div class="episode-grid">
           <div 
-            class="episode-item" 
-            :class="{ free: ep <= 10, vip: ep > 10 && ep <= 18, locked: ep > 18 }"
-            v-for="ep in drama.episodes" 
-            :key="ep"
+            class="episode-item"
+            v-for="(ep, index) in episodeList" 
+            :key="index"
             @click="handleEpisode(ep)"
           >
-            {{ ep > 18 ? '🔒' : ep }}
+            <span class="ep-num">{{ ep.num }}</span>
+            <span class="ep-tag" :class="{ price: !ep.isVip }">{{ ep.isVip ? 'VIP' : '¥' + ep.price }}</span>
           </div>
         </div>
       </div>
@@ -46,41 +46,92 @@
         <van-icon name="share-o" size="22" color="#999" />
         <span>分享</span>
       </div>
-      <van-button type="danger" round class="buy-btn" @click="handleBuy">
-        解锁全剧 ¥{{ drama.price }}
-      </van-button>
-      <van-button type="warning" round class="vip-btn" @click="handleVip">
+      <van-button v-if="drama.isVip" type="warning" round class="vip-btn" @click="handleVip">
         开通VIP ¥{{ drama.vipPrice }}/月
+      </van-button>
+      <van-button v-else type="danger" round class="buy-btn" @click="handleBuy">
+        解锁全剧 ¥{{ drama.price }}
       </van-button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { showToast, showConfirmDialog } from 'vant'
+import { useDramaStore } from '@/stores/drama'
 
 const route = useRoute()
 const router = useRouter()
+const dramaStore = useDramaStore()
+
+// 从store获取短剧数据
+const dramaId = computed(() => Number(route.params.id) || 1)
+const dramaData = computed(() => {
+  const allDramas = dramaStore.recommendList.length > 0 
+    ? dramaStore.recommendList 
+    : getMockDramasLocal()
+  return allDramas.find(d => d.id === dramaId.value) || getMockDramasLocal()[0]
+})
 
 const drama = reactive({
-  id: 1,
-  title: '豪门千金的逆袭人生',
-  cover: 'https://picsum.photos/800/450?random=1',
-  description: '豪门千金苏晚晴被继母陷害，流落街头。五年后，她华丽归来，誓要让那些伤害过她的人付出代价。在这个过程中，她意外与冷面总裁陆景琛产生了交集，两人从互相看不顺眼到暗生情愫，最终携手走向幸福...',
-  tags: ['都市', '逆袭', '甜宠', '霸总'],
-  episodes: 86,
-  price: 19.9,
+  id: dramaData.value?.id || 1,
+  title: dramaData.value?.title || '豪门千金的逆袭人生',
+  cover: dramaData.value?.cover || 'https://picsum.photos/800/450?random=1',
+  description: dramaData.value?.description || '豪门千金苏晚晴被继母陷害...',
+  tags: dramaData.value?.tags || ['都市', '逆袭', '甜宠', '霸总'],
+  episodes: dramaData.value?.episodes || 86,
+  isVip: dramaData.value?.isVip ?? true, // 从短剧数据获取
+  price: dramaData.value?.price || 19.9,
   vipPrice: 9.9
 })
 
 const isFavorite = ref(false)
+const episodeList = ref([])
+
+// 本地模拟数据
+function getMockDramasLocal() {
+  return [
+    { id: 1, title: '豪门千金的逆袭人生', isVip: true, price: 29.9, episodes: 86, cover: 'https://picsum.photos/800/450?random=1', description: '豪门千金苏晚晴被继母陷害...', tags: ['都市', '逆袭'] },
+    { id: 2, title: '重生之商业女王', isVip: false, price: 19.9, episodes: 98, cover: 'https://picsum.photos/800/450?random=2', description: '前世被渣男和闺蜜联手害死...', tags: ['重生', '逆袭'] },
+    { id: 3, title: '穿越之医妃倾天下', isVip: true, price: 25.9, episodes: 80, cover: 'https://picsum.photos/800/450?random=3', description: '现代医学博士穿越成古代不受宠的嫡女...', tags: ['古装', '穿越'] },
+    { id: 4, title: '闪婚后千亿总裁宠上天', isVip: false, price: 18.9, episodes: 42, cover: 'https://picsum.photos/800/450?random=4', description: '被继母逼婚...', tags: ['甜宠', '霸总'] },
+    { id: 5, title: '落魄千金复仇记', isVip: true, price: 22.9, episodes: 60, cover: 'https://picsum.photos/800/450?random=5', description: '一夜之间家破人亡...', tags: ['复仇', '逆袭'] },
+    { id: 6, title: '隐世高手在都市', isVip: false, price: 15.9, episodes: 55, cover: 'https://picsum.photos/800/450?random=6', description: '隐世宗门传人下山历练...', tags: ['都市', '爽文'] },
+    { id: 7, title: '替身新娘：总裁的契约妻', isVip: true, price: 28.9, episodes: 72, cover: 'https://picsum.photos/800/450?random=7', description: '为了替妹妹还债...', tags: ['甜宠', '契约'] },
+    { id: 8, title: '神医毒妃', isVip: false, price: 16.9, episodes: 68, cover: 'https://picsum.photos/800/450?random=8', description: '她是21世纪顶级毒医...', tags: ['古装', '穿越'] },
+    { id: 9, title: '千亿宠婚：总裁大人求放过', isVip: true, price: 24.9, episodes: 45, cover: 'https://picsum.photos/800/450?random=9', description: '一场意外...', tags: ['甜宠', '霸总'] },
+    { id: 10, title: '消失的新娘', isVip: true, price: 26.9, episodes: 36, cover: 'https://picsum.photos/800/450?random=10', description: '婚礼当天新娘离奇失踪...', tags: ['悬疑', '推理'] }
+  ]
+}
 
 onMounted(() => {
-  const id = route.params.id
-  // TODO: 根据 id 获取详情
-  console.log('Drama ID:', id)
+  // 更新drama数据
+  const data = dramaData.value
+  if (data) {
+    drama.id = data.id
+    drama.title = data.title
+    drama.cover = data.cover
+    drama.description = data.description
+    drama.tags = data.tags
+    drama.episodes = data.episodes
+    drama.isVip = data.isVip
+    drama.price = data.price
+  }
+  
+  // 根据短剧类型生成剧集列表
+  const episodes = []
+  // 计算单集价格（总价/集数，保留1位小数）
+  const episodePrice = drama.isVip ? null : Math.max(1, Math.round(drama.price / drama.episodes * 10) / 10)
+  for (let i = 1; i <= drama.episodes; i++) {
+    episodes.push({
+      num: i,
+      isVip: drama.isVip, // 根据短剧类型决定
+      price: episodePrice // 单集价格一致
+    })
+  }
+  episodeList.value = episodes
 })
 
 function goBack() {
@@ -88,14 +139,44 @@ function goBack() {
 }
 
 function handlePlay() {
-  router.push(`/player/${drama.id}`)
+  // 没有免费剧集，点击播放也需要付费
+  showConfirmDialog({
+    title: '提示',
+    message: '本剧所有剧集均需VIP或付费观看，是否立即开通？',
+    confirmButtonText: '开通VIP',
+    cancelButtonText: '单集购买'
+  }).then(() => {
+    router.push('/pay?type=vip')
+  }).catch(() => {
+    // 点击取消跳转到单集购买
+    if (episodeList.value.length > 0) {
+      const firstEp = episodeList.value[0]
+      handleEpisode(firstEp)
+    }
+  })
 }
 
 function handleEpisode(ep) {
-  if (ep > 18) {
-    showToast('请先开通VIP或解锁全剧')
+  if (drama.isVip) {
+    // VIP短剧，所有剧集需要VIP
+    showConfirmDialog({
+      title: 'VIP专享',
+      message: `《${drama.title}》为VIP专享短剧，开通VIP即可观看全集`,
+      confirmButtonText: '开通VIP',
+      cancelButtonText: '取消'
+    }).then(() => {
+      router.push('/pay?type=vip')
+    }).catch(() => {})
   } else {
-    router.push(`/player/${drama.id}?episode=${ep}`)
+    // 付费短剧，所有剧集需要付费
+    showConfirmDialog({
+      title: '付费解锁',
+      message: `第${ep.num}集需要付费¥${ep.price}解锁，是否购买？`,
+      confirmButtonText: '立即购买',
+      cancelButtonText: '取消'
+    }).then(() => {
+      router.push(`/pay?type=episode&id=${drama.id}&ep=${ep.num}&price=${ep.price}`)
+    }).catch(() => {})
   }
 }
 
@@ -224,24 +305,31 @@ async function handleVip() {
   background: $bg-secondary;
   border-radius: $radius-md;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
   
-  &.free {
-    background: $bg-secondary;
+  .ep-num {
+    font-size: 14px;
+    font-weight: 500;
   }
   
-  &.vip {
-    background: linear-gradient(135deg, $bg-tertiary 0%, $bg-secondary 100%);
-    color: #ffd700;
-  }
-  
-  &.locked {
-    background: $bg-secondary;
-    color: $text-tertiary;
+  .ep-tag {
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-top: 2px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #000;
+    
+    &.price {
+      background: rgba(255, 71, 87, 0.9);
+      color: #fff;
+    }
   }
   
   &:active {

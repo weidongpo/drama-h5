@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+// 获取 base 路径，与 vite.config.js 保持一致
+const base = import.meta.env.BASE_URL
+
 const routes = [
   {
     path: '/',
@@ -196,7 +199,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(base),
   routes
 })
 

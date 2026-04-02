@@ -15,6 +15,8 @@
       >
         <div class="drama-cover">
           <van-image :src="item.cover" fit="cover" class="cover-image" />
+          <div class="vip-tag" v-if="item.isVip">VIP</div>
+          <div class="price-tag" v-else>¥{{ item.price }}</div>
           <div class="update-badge">更新至{{ item.episodes }}集</div>
         </div>
         <div class="drama-info">
@@ -71,7 +73,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=10',
       episodes: 86,
       currentEpisode: 32,
-      lastWatchTime: '2小时前'
+      lastWatchTime: '2小时前',
+      isVip: true,
+      price: 29.9
     },
     { 
       id: 2, 
@@ -79,7 +83,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=11',
       episodes: 98,
       currentEpisode: 56,
-      lastWatchTime: '昨天'
+      lastWatchTime: '昨天',
+      isVip: false,
+      price: 19.9
     },
     { 
       id: 3, 
@@ -87,7 +93,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=12',
       episodes: 65,
       currentEpisode: 18,
-      lastWatchTime: '3天前'
+      lastWatchTime: '3天前',
+      isVip: true,
+      price: 28.9
     },
     { 
       id: 4, 
@@ -95,7 +103,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=13',
       episodes: 80,
       currentEpisode: 45,
-      lastWatchTime: '5天前'
+      lastWatchTime: '5天前',
+      isVip: true,
+      price: 25.9
     },
     { 
       id: 5, 
@@ -103,7 +113,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=14',
       episodes: 36,
       currentEpisode: 36,
-      lastWatchTime: '1周前'
+      lastWatchTime: '1周前',
+      isVip: true,
+      price: 26.9
     },
     { 
       id: 6, 
@@ -111,7 +123,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=15',
       episodes: 65,
       currentEpisode: 28,
-      lastWatchTime: '1周前'
+      lastWatchTime: '1周前',
+      isVip: true,
+      price: 27.9
     },
     { 
       id: 7, 
@@ -119,7 +133,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=16',
       episodes: 96,
       currentEpisode: 72,
-      lastWatchTime: '2周前'
+      lastWatchTime: '2周前',
+      isVip: true,
+      price: 32.9
     },
     { 
       id: 8, 
@@ -127,7 +143,9 @@ onMounted(() => {
       cover: 'https://picsum.photos/200/280?random=17',
       episodes: 200,
       currentEpisode: 88,
-      lastWatchTime: '2周前'
+      lastWatchTime: '2周前',
+      isVip: true,
+      price: 35.9
     }
   ]
 })
@@ -213,6 +231,30 @@ function goHome() {
 .cover-image {
   width: 100%;
   height: 100%;
+}
+
+.vip-tag {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: $vip-gradient;
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  font-size: 10px;
+  font-weight: 600;
+  color: #000;
+}
+
+.price-tag {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: rgba(255, 71, 87, 0.9);
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
 }
 
 .update-badge {
