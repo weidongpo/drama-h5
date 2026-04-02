@@ -32,6 +32,12 @@ const routes = [
     meta: { title: '我的' }
   },
   {
+    path: '/profile/edit',
+    name: 'ProfileEdit',
+    component: () => import('@/views/profile-edit/index.vue'),
+    meta: { title: '编辑资料' }
+  },
+  {
     path: '/detail/:id',
     name: 'Detail',
     component: () => import('@/views/detail/index.vue'),
@@ -102,6 +108,90 @@ const routes = [
     name: 'About',
     component: () => import('@/views/about/index.vue'),
     meta: { title: '关于我们' }
+  },
+  {
+    path: '/tickets',
+    name: 'Tickets',
+    component: () => import('@/views/tickets/index.vue'),
+    meta: { title: '观影券' }
+  },
+  {
+    path: '/download',
+    name: 'Download',
+    component: () => import('@/views/download/index.vue'),
+    meta: { title: '我的下载' }
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: () => import('@/views/help/index.vue'),
+    meta: { title: '帮助与反馈' }
+  },
+  {
+    path: '/recharge',
+    name: 'Recharge',
+    component: () => import('@/views/recharge/index.vue'),
+    meta: { title: '充值积分' }
+  },
+  {
+    path: '/withdraw',
+    name: 'Withdraw',
+    component: () => import('@/views/withdraw/index.vue'),
+    meta: { title: '提现' }
+  },
+  {
+    path: '/agreement',
+    name: 'Agreement',
+    component: () => import('@/views/agreement/index.vue'),
+    meta: { title: '用户协议' }
+  },
+  {
+    path: '/policy',
+    name: 'Policy',
+    component: () => import('@/views/policy/index.vue'),
+    meta: { title: '隐私政策' }
+  },
+  {
+    path: '/rate',
+    name: 'Rate',
+    component: () => import('@/views/rate/index.vue'),
+    meta: { title: '给个好评' }
+  },
+  {
+    path: '/setting/account',
+    name: 'SettingAccount',
+    component: () => import('@/views/setting/account.vue'),
+    meta: { title: '账号与安全' }
+  },
+  {
+    path: '/setting/privacy',
+    name: 'SettingPrivacy',
+    component: () => import('@/views/setting/privacy.vue'),
+    meta: { title: '隐私设置' }
+  },
+  {
+    path: '/setting/notification',
+    name: 'SettingNotification',
+    component: () => import('@/views/setting/notification.vue'),
+    meta: { title: '通知设置' }
+  },
+  {
+    path: '/setting/play',
+    name: 'SettingPlay',
+    component: () => import('@/views/setting/play.vue'),
+    meta: { title: '播放设置' }
+  },
+  {
+    path: '/setting/download',
+    name: 'SettingDownload',
+    component: () => import('@/views/setting/download.vue'),
+    meta: { title: '下载设置' }
+  },
+  {
+    path: '/setting/devices',
+    name: 'SettingDevices',
+    component: () => import('@/views/setting/devices.vue'),
+    meta: { title: '登录设备管理' }
   }
 ]
 

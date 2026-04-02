@@ -1,0 +1,178 @@
+<template>
+  <div class="policy-page">
+    <!-- 头部 -->
+    <header class="header">
+      <div class="back-btn" @click="goBack">
+        <van-icon name="arrow-left" size="20" color="#fff" />
+      </div>
+      <div class="header-title">隐私政策</div>
+    </header>
+
+    <!-- 内容 -->
+    <div class="content">
+      <h3>追剧达人隐私政策</h3>
+      <p class="update-time">更新日期：2026年1月1日</p>
+      
+      <section>
+        <h4>引言</h4>
+        <p>追剧达人（以下简称"我们"）非常重视用户的隐私和个人信息保护。本隐私政策将向您说明我们如何收集、使用、存储、共享和保护您的个人信息，以及您如何管理您的个人信息。</p>
+      </section>
+      
+      <section>
+        <h4>一、我们收集的信息</h4>
+        <p>为了向您提供服务，我们会收集以下信息：</p>
+        <p>1.1 账户信息：当您注册账户时，我们会收集您的手机号码、昵称、头像等信息。</p>
+        <p>1.2 设备信息：我们会收集您的设备型号、操作系统版本、唯一设备标识符等信息。</p>
+        <p>1.3 日志信息：当您使用我们的服务时，我们会自动收集您的浏览记录、观看记录、搜索记录等信息。</p>
+        <p>1.4 支付信息：当您进行充值或购买时，我们会收集您的支付方式、交易记录等信息。</p>
+        <p>1.5 位置信息：在获得您同意的情况下，我们会收集您的大致地理位置信息。</p>
+      </section>
+      
+      <section>
+        <h4>二、我们如何使用收集的信息</h4>
+        <p>我们收集的信息将用于以下目的：</p>
+        <p>2.1 为您提供、维护、改进我们的服务；</p>
+        <p>2.2 向您推荐您可能感兴趣的内容；</p>
+        <p>2.3 用于身份验证、客户服务、安全防范、诈骗监测、存档和备份等；</p>
+        <p>2.4 向您发送服务通知和营销信息（经您同意）；</p>
+        <p>2.5 遵守法律法规的要求。</p>
+      </section>
+      
+      <section>
+        <h4>三、信息的存储</h4>
+        <p>3.1 我们会采取加密等安全措施存储您的个人信息。</p>
+        <p>3.2 您的个人信息将存储在中华人民共和国境内。</p>
+        <p>3.3 我们会在实现本政策所述目的所需的期限内保留您的个人信息，法律法规另有规定的除外。</p>
+      </section>
+      
+      <section>
+        <h4>四、信息的共享</h4>
+        <p>我们不会向第三方出售您的个人信息。我们仅在以下情况下共享您的个人信息：</p>
+        <p>4.1 获得您的明确同意后；</p>
+        <p>4.2 根据法律法规的要求或政府主管部门的强制性要求；</p>
+        <p>4.3 与授权合作伙伴共享：我们可能委托合作伙伴为您提供某些服务，这些合作伙伴包括支付服务提供商、数据分析服务商等。</p>
+      </section>
+      
+      <section>
+        <h4>五、您的权利</h4>
+        <p>您对您的个人信息享有以下权利：</p>
+        <p>5.1 访问权：您有权访问您的个人信息，法律法规规定的例外情况除外。</p>
+        <p>5.2 更正权：您有权要求我们更正不准确的个人信息。</p>
+        <p>5.3 删除权：在特定情况下，您有权要求我们删除您的个人信息。</p>
+        <p>5.4 撤回同意权：您有权撤回之前给予我们的同意。</p>
+        <p>5.5 注销账户：您可以在设置页面申请注销账户。</p>
+      </section>
+      
+      <section>
+        <h4>六、Cookie的使用</h4>
+        <p>6.1 我们使用Cookie和类似技术来提供、保护和改进我们的服务。</p>
+        <p>6.2 您可以通过浏览器设置管理Cookie，但这可能影响您使用我们服务的某些功能。</p>
+      </section>
+      
+      <section>
+        <h4>七、未成年人保护</h4>
+        <p>7.1 我们非常重视对未成年人个人信息的保护。</p>
+        <p>7.2 如果您是未成年人，请在监护人的陪同下阅读本政策，并在取得监护人同意后使用我们的服务。</p>
+        <p>7.3 如果您是未成年人的监护人，请您关注未成年人是否是在您的授权同意下使用我们的服务。</p>
+      </section>
+      
+      <section>
+        <h4>八、本政策的更新</h4>
+        <p>8.1 我们可能会适时修订本政策内容。</p>
+        <p>8.2 如该等变更会导致您在本政策项下权利的实质减损，我们将在变更生效前，通过在页面显著位置提示、向您发送推送消息等方式通知您。</p>
+        <p>8.3 若您在该等变更通知后继续使用我们的服务，即代表您同意受修订后的政策约束。</p>
+      </section>
+      
+      <section>
+        <h4>九、联系我们</h4>
+        <p>如果您对本隐私政策有任何疑问、意见或建议，请通过以下方式与我们联系：</p>
+        <p>客服电话：400-888-8888</p>
+        <p>客服邮箱：service@drama.com</p>
+        <p>我们将在15个工作日内回复您的请求。</p>
+      </section>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function goBack() {
+  router.back()
+}
+</script>
+
+<style lang="scss" scoped>
+.policy-page {
+  min-height: 100vh;
+  background: $bg-color;
+  padding-bottom: 20px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-bottom: 1px solid $border-light;
+}
+
+.back-btn {
+  position: absolute;
+  left: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 60px 16px 20px;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .update-time {
+    font-size: 12px;
+    color: $text-tertiary;
+    margin-bottom: 24px;
+  }
+}
+
+section {
+  margin-bottom: 24px;
+  
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: $text-primary;
+  }
+  
+  p {
+    font-size: 14px;
+    color: $text-secondary;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+}
+</style>

@@ -61,7 +61,7 @@ function sendEmail() {
 }
 
 function handleRate() {
-  showToast('感谢您的支持！')
+  router.push('/rate')
 }
 
 function goBack() {

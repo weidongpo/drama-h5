@@ -73,13 +73,24 @@
 
     <!-- 底部导航 -->
     <BottomNav />
+
+    <!-- 分享弹窗 -->
+    <van-share-sheet
+      v-model:show="showShareSheet"
+      title="立即分享给好友"
+      :options="shareOptions"
+      @select="handleShareSelect"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { showToast } from 'vant'
 import BottomNav from '@/components/BottomNav.vue'
+
+const router = useRouter()
 
 const points = ref(2580)
 const dailyTasks = ref([])
@@ -97,7 +108,8 @@ onMounted(() => {
       progress: 3,
       total: 5,
       unit: '分钟',
-      status: 'go'
+      status: 'go',
+      type: 'watch'
     },
     { 
       id: 2, 
@@ -105,7 +117,8 @@ onMounted(() => {
       name: '分享短剧', 
       desc: '分享短剧给好友', 
       reward: 20,
-      status: 'go'
+      status: 'go',
+      type: 'share'
     },
     { 
       id: 3, 
@@ -116,7 +129,8 @@ onMounted(() => {
       progress: 3,
       total: 3,
       unit: '部',
-      status: 'claim'
+      status: 'claim',
+      type: 'favorite'
     },
     { 
       id: 4, 
@@ -124,7 +138,8 @@ onMounted(() => {
       name: '每日签到', 
       desc: '连续签到7天额外奖励', 
       reward: 5,
-      status: 'done'
+      status: 'done',
+      type: 'checkin'
     }
   ]
   
@@ -138,7 +153,8 @@ onMounted(() => {
       progress: 45,
       total: 100,
       unit: '集',
-      status: 'go'
+      status: 'go',
+      type: 'watch'
     },
     { 
       id: 6, 
@@ -149,17 +165,18 @@ onMounted(() => {
       progress: 1,
       total: 5,
       unit: '人',
-      status: 'go'
+      status: 'go',
+      type: 'invite'
     }
   ]
 })
 
 function handleRecharge() {
-  showToast('充值功能开发中')
+  router.push('/recharge')
 }
 
 function handleWithdraw() {
-  showToast('提现功能开发中')
+  router.push('/withdraw')
 }
 
 function handleTaskClick(task) {
@@ -168,9 +185,55 @@ function handleTaskClick(task) {
     points.value += task.reward
     task.status = 'done'
     showToast(`恭喜获得 ${task.reward} 积分！`)
-  } else if (task.status === 'go') {
-    showToast('跳转任务页面...')
+    return
   }
+  
+  if (task.status === 'go') {
+    // 根据任务类型跳转
+    switch (task.type) {
+      case 'watch':
+        // 跳转首页观看短剧
+        router.push('/')
+        break
+      case 'share':
+        // 显示分享弹窗
+        showShareSheet.value = true
+        break
+      case 'favorite':
+        // 跳转收藏页
+        router.push('/favorite')
+        break
+      case 'checkin':
+        // 签到
+        handleCheckin(task)
+        break
+      case 'invite':
+        // 跳转邀请页
+        router.push('/invite')
+        break
+      default:
+        showToast('任务页面开发中')
+    }
+  }
+}
+
+function handleCheckin(task) {
+  points.value += task.reward
+  task.status = 'done'
+  showToast('签到成功！')
+}
+
+const showShareSheet = ref(false)
+
+const shareOptions = [
+  { name: '微信', icon: 'wechat' },
+  { name: '朋友圈', icon: 'wechat-moments' },
+  { name: '复制链接', icon: 'link' }
+]
+
+function handleShareSelect(option) {
+  showShareSheet.value = false
+  showToast(`分享到${option.name}`)
 }
 </script>
 

@@ -17,7 +17,18 @@ import {
   Tab,
   Progress,
   Cell,
-  CellGroup
+  CellGroup,
+  Loading,
+  Popup,
+  Collapse,
+  CollapseItem,
+  Field,
+  ActionSheet,
+  DatePicker,
+  ShareSheet,
+  Switch,
+  TimePicker,
+  Rate
 } from 'vant'
 import 'vant/lib/index.css'
 
@@ -40,6 +51,17 @@ app.use(Tab)
 app.use(Progress)
 app.use(Cell)
 app.use(CellGroup)
+app.use(Loading)
+app.use(Popup)
+app.use(Collapse)
+app.use(CollapseItem)
+app.use(Field)
+app.use(ActionSheet)
+app.use(DatePicker)
+app.use(ShareSheet)
+app.use(Switch)
+app.use(TimePicker)
+app.use(Rate)
 
 app.use(createPinia())
 app.use(router)

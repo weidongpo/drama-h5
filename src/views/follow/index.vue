@@ -18,9 +18,12 @@
           <div class="update-badge">更新至{{ item.episodes }}集</div>
         </div>
         <div class="drama-info">
-          <div>
+          <div class="info-top">
             <div class="drama-title">{{ item.title }}</div>
-            <div class="drama-progress">已看到 <span>第{{ item.currentEpisode }}集</span></div>
+            <div class="drama-progress">已看到 <span>第{{ item.currentEpisode }}集</span> / 共{{ item.episodes }}集</div>
+            <div class="progress-bar">
+              <div class="progress-fill" :style="{ width: (item.currentEpisode / item.episodes * 100) + '%' }"></div>
+            </div>
             <div class="drama-meta">上次观看: {{ item.lastWatchTime }}</div>
           </div>
           <div class="drama-actions">
@@ -151,6 +154,7 @@ function goHome() {
   padding: $spacing-lg 0;
   border-bottom: 1px solid $border-light;
   cursor: pointer;
+  align-items: flex-start;
   
   &:last-child {
     border-bottom: none;
@@ -184,9 +188,15 @@ function goHome() {
 
 .drama-info {
   flex: 1;
+  height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
+}
+
+.info-top {
+  flex: 1;
 }
 
 .drama-title {
@@ -197,6 +207,7 @@ function goHome() {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 1.4;
 }
 
 .drama-progress {
@@ -214,9 +225,29 @@ function goHome() {
   color: $text-tertiary;
 }
 
+.progress-bar {
+  height: 4px;
+  background: $bg-tertiary;
+  border-radius: 2px;
+  margin: $spacing-sm 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: $primary-color;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
 .drama-actions {
   display: flex;
   gap: $spacing-md;
   margin-top: $spacing-sm;
+  
+  :deep(.van-button) {
+    flex: 1;
+    max-width: 80px;
+  }
 }
 </style>

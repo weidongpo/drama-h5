@@ -37,19 +37,29 @@
 
     <!-- 轮播图 -->
     <div class="banner-section">
-      <div class="banner-list">
+      <div 
+        class="banner-list" 
+        ref="bannerListRef"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+      >
         <div 
-          class="banner" 
-          :class="{ active: index === currentBanner }"
-          v-for="(banner, index) in banners" 
-          :key="banner.id"
-          @click="handleBannerClick(banner)"
+          class="banner-wrapper"
+          :style="{ transform: `translateX(-${currentBanner * 100}%)` }"
         >
-          <van-image :src="banner.image" fit="cover" class="banner-image" />
-          <div class="banner-tag" v-if="banner.tag">{{ banner.tag }}</div>
-          <div class="banner-info">
-            <div class="banner-title">{{ banner.title }}</div>
-            <div class="banner-desc">播放量 {{ banner.views }} | 更新至第{{ banner.episodes }}集</div>
+          <div 
+            class="banner" 
+            v-for="(banner, index) in banners" 
+            :key="banner.id"
+            @click="handleBannerClick(banner)"
+          >
+            <van-image :src="banner.image" fit="cover" class="banner-image" />
+            <div class="banner-tag" v-if="banner.tag">{{ banner.tag }}</div>
+            <div class="banner-info">
+              <div class="banner-title">{{ banner.title }}</div>
+              <div class="banner-desc">播放量 {{ banner.views }} | 更新至第{{ banner.episodes }}集</div>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +69,7 @@
           :class="{ active: index === currentBanner }"
           v-for="(banner, index) in banners" 
           :key="index"
-          @click="currentBanner = index"
+          @click.stop="currentBanner = index"
         ></span>
       </div>
     </div>
@@ -71,22 +81,39 @@
         <span class="more" @click="handleMoreClick">查看更多 ></span>
       </div>
       
-      <div class="drama-grid">
-        <div 
-          class="drama-card" 
-          v-for="drama in recommendList" 
-          :key="drama.id"
-          @click="handleDramaClick(drama)"
-        >
-          <div class="drama-cover">
-            <van-image :src="drama.cover" fit="cover" class="cover-image" />
-            <div class="vip-tag" v-if="drama.isVip">VIP</div>
-            <div class="update-tag">{{ drama.status === 'completed' ? '全' : '更新至' }}{{ drama.episodes }}集</div>
-          </div>
-          <div class="drama-title">{{ drama.title }}</div>
-          <div class="drama-meta">{{ drama.views }}次播放</div>
-        </div>
+      <!-- 加载中 -->
+      <div class="loading-wrapper" v-if="loading">
+        <van-loading size="24px" color="#ff4757">加载中...</van-loading>
       </div>
+      
+      <!-- 空状态 -->
+      <van-empty 
+        v-else-if="!recommendList.length" 
+        description="暂无相关短剧"
+        image="search"
+      >
+        <van-button type="danger" round size="small" @click="handleCategoryClick(0)">查看全部</van-button>
+      </van-empty>
+      
+      <!-- 列表 -->
+      <transition name="fade" mode="out-in">
+        <div class="drama-grid" :key="currentCategory" v-if="!loading && recommendList.length">
+          <div 
+            class="drama-card" 
+            v-for="drama in recommendList" 
+            :key="drama.id"
+            @click="handleDramaClick(drama)"
+          >
+            <div class="drama-cover">
+              <van-image :src="drama.cover" fit="cover" class="cover-image" />
+              <div class="vip-tag" v-if="drama.isVip">VIP</div>
+              <div class="update-tag">{{ drama.status === 'completed' ? '全' : '更新至' }}{{ drama.episodes }}集</div>
+            </div>
+            <div class="drama-title">{{ drama.title }}</div>
+            <div class="drama-meta">{{ drama.views }}次播放</div>
+          </div>
+        </div>
+      </transition>
     </div>
 
     <!-- 底部导航 -->
@@ -95,7 +122,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDramaStore } from '@/stores/drama'
 import BottomNav from '@/components/BottomNav.vue'
@@ -108,19 +135,57 @@ const categories = ref(dramaStore.categories)
 const banners = ref([])
 const recommendList = ref([])
 const currentBanner = ref(0)
+const loading = ref(false)
+const currentCategory = computed(() => dramaStore.currentCategory)
+
+// 触摸相关
+const touchStartX = ref(0)
+const touchEndX = ref(0)
+const bannerListRef = ref(null)
 
 onMounted(async () => {
   // 加载数据
   banners.value = await dramaStore.fetchBanners()
   recommendList.value = await dramaStore.fetchRecommend()
-  
-  // 自动轮播
-  setInterval(() => {
-    if (banners.value.length > 1) {
-      currentBanner.value = (currentBanner.value + 1) % banners.value.length
-    }
-  }, 3000)
 })
+
+// 触摸开始
+function handleTouchStart(e) {
+  touchStartX.value = e.touches[0].clientX
+}
+
+// 触摸移动
+function handleTouchMove(e) {
+  touchEndX.value = e.touches[0].clientX
+}
+
+// 触摸结束
+function handleTouchEnd() {
+  const diff = touchStartX.value - touchEndX.value
+  const threshold = 50 // 滑动阈值
+  
+  if (diff > threshold) {
+    // 向左滑动，下一张
+    if (currentBanner.value < banners.value.length - 1) {
+      currentBanner.value++
+    } else {
+      // 从最后一个跳到第一个
+      currentBanner.value = 0
+    }
+  } else if (diff < -threshold) {
+    // 向右滑动，上一张
+    if (currentBanner.value > 0) {
+      currentBanner.value--
+    } else {
+      // 从第一个跳到最后一个
+      currentBanner.value = banners.value.length - 1
+    }
+  }
+  
+  // 重置
+  touchStartX.value = 0
+  touchEndX.value = 0
+}
 
 // 跳转搜索
 function goSearch() {
@@ -138,12 +203,17 @@ function goProfile() {
 }
 
 // 切换分类
-function handleCategoryClick(categoryId) {
+async function handleCategoryClick(categoryId) {
   dramaStore.setCategory(categoryId)
+  loading.value = true
+  
+  // 模拟加载延迟
+  await new Promise(resolve => setTimeout(resolve, 300))
+  
   // 重新加载数据
-  dramaStore.fetchRecommend(categoryId).then(data => {
-    recommendList.value = data
-  })
+  const data = await dramaStore.fetchRecommend(categoryId)
+  recommendList.value = data || []
+  loading.value = false
 }
 
 // 点击轮播图
@@ -249,26 +319,27 @@ function handleMoreClick() {
   aspect-ratio: 16/9;
   border-radius: $radius-lg;
   overflow: hidden;
+  cursor: grab;
+}
+
+.banner-wrapper {
+  display: flex;
+  height: 100%;
+  transition: transform 0.3s ease;
 }
 
 .banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 0.5s;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
   cursor: pointer;
-  
-  &.active {
-    opacity: 1;
-  }
 }
 
 .banner-image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .banner-tag {
@@ -410,5 +481,22 @@ function handleMoreClick() {
   font-size: 11px;
   color: $text-tertiary;
   margin-top: $spacing-xs;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

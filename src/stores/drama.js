@@ -39,8 +39,24 @@ export const useDramaStore = defineStore('drama', () => {
       return res.data
     } catch (error) {
       console.error('获取推荐失败:', error)
-      // 使用模拟数据
-      recommendList.value = getMockDramas()
+      // 使用模拟数据并筛选
+      const allDramas = getMockDramas()
+      
+      if (categoryId === 0) {
+        // 推荐分类显示全部
+        recommendList.value = allDramas
+      } else {
+        // 根据分类名称筛选
+        const categoryName = categories.value.find(c => c.id === categoryId)?.name
+        if (categoryName) {
+          recommendList.value = allDramas.filter(drama => 
+            drama.tags && drama.tags.includes(categoryName)
+          )
+        } else {
+          recommendList.value = allDramas
+        }
+      }
+      
       return recommendList.value
     } finally {
       loading.value = false
@@ -111,7 +127,12 @@ function getMockDramas() {
     { id: 6, title: '隐世高手在都市', cover: 'https://picsum.photos/300/400?random=7', views: '7200万', isVip: false, episodes: 55, status: 'updating', likes: 45000, description: '隐世宗门传人下山历练，凭借一身绝技在都市中纵横捭阖...', tags: ['都市', '爽文', '热血'] },
     { id: 7, title: '替身新娘：总裁的契约妻', cover: 'https://picsum.photos/300/400?random=8', views: '6800万', isVip: true, episodes: 72, status: 'completed', likes: 52000, description: '为了替妹妹还债，她被迫成为他的契约妻子，却没想到假戏真做...', tags: ['甜宠', '契约', '霸总'] },
     { id: 8, title: '神医毒妃', cover: 'https://picsum.photos/300/400?random=9', views: '5800万', isVip: false, episodes: 68, status: 'updating', likes: 38000, description: '她是21世纪顶级毒医，一朝穿越成为被废的太子妃，从此开启开挂人生...', tags: ['古装', '穿越', '毒医'] },
-    { id: 9, title: '千亿宠婚：总裁大人求放过', cover: 'https://picsum.photos/300/400?random=10', views: '5200万', isVip: true, episodes: 45, status: 'completed', likes: 35000, description: '一场意外，她惹上了这座城市最尊贵的男人，从此被他宠上天...', tags: ['甜宠', '霸总', '宠婚'] }
+    { id: 9, title: '千亿宠婚：总裁大人求放过', cover: 'https://picsum.photos/300/400?random=10', views: '5200万', isVip: true, episodes: 45, status: 'completed', likes: 35000, description: '一场意外，她惹上了这座城市最尊贵的男人，从此被他宠上天...', tags: ['甜宠', '霸总', '宠婚'] },
+    { id: 10, title: '消失的新娘', cover: 'https://picsum.photos/300/400?random=13', views: '6800万', isVip: true, episodes: 36, status: 'completed', likes: 48000, description: '婚礼当天新娘离奇失踪，新郎在寻找真相的过程中发现惊天秘密...', tags: ['悬疑', '推理', '都市'] },
+    { id: 11, title: '迷雾追踪', cover: 'https://picsum.photos/300/400?random=14', views: '5500万', isVip: false, episodes: 48, status: 'updating', likes: 42000, description: '连环杀人案背后隐藏着怎样的真相？刑警队长深入调查揭开层层迷雾...', tags: ['悬疑', '刑侦', '犯罪'] },
+    { id: 12, title: '诡宅惊魂', cover: 'https://picsum.photos/300/400?random=15', views: '4800万', isVip: true, episodes: 32, status: 'completed', likes: 36000, description: '搬进新家后怪事频发，她发现这栋豪宅背后隐藏着不为人知的秘密...', tags: ['悬疑', '惊悚', '灵异'] },
+    { id: 13, title: '致命谎言', cover: 'https://picsum.photos/300/400?random=16', views: '4200万', isVip: false, episodes: 40, status: 'updating', likes: 32000, description: '一个谎言需要无数个谎言来圆，当真相大白时，所有人都震惊了...', tags: ['悬疑', '心理', '都市'] },
+    { id: 14, title: '密室逃脱', cover: 'https://picsum.photos/300/400?random=17', views: '3800万', isVip: true, episodes: 28, status: 'completed', likes: 28000, description: '六个人被困密室，只有找出凶手才能活命，而凶手就在他们之中...', tags: ['悬疑', '推理', '密室'] }
   ]
 }
 

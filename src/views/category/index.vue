@@ -90,11 +90,17 @@
     </div>
 
     <!-- 筛选弹窗 -->
-    <van-popup v-model:show="showFilter" position="bottom" round>
+    <van-popup 
+      v-model:show="showFilter" 
+      position="bottom" 
+      round 
+      teleport="body"
+      :style="{ background: '#1a1a1a' }"
+    >
       <div class="filter-popup">
         <div class="popup-header">
           <h3>筛选</h3>
-          <van-icon name="cross" size="24" @click="showFilter = false" />
+          <van-icon name="cross" size="24" color="#fff" @click="showFilter = false" />
         </div>
         
         <div class="filter-section">
@@ -269,6 +275,7 @@ function goBack() {
   min-height: 100vh;
   background: $bg-color;
   padding-bottom: 20px;
+  overflow-x: hidden;
 }
 
 .header {
@@ -460,6 +467,7 @@ function goBack() {
 
 // 筛选弹窗
 .filter-popup {
+  background: $bg-secondary;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -473,6 +481,7 @@ function goBack() {
   h3 {
     font-size: 16px;
     font-weight: 600;
+    color: $text-primary;
   }
 }
 
@@ -493,7 +502,7 @@ function goBack() {
 
 .filter-option {
   padding: 8px 20px;
-  background: $bg-secondary;
+  background: $bg-tertiary;
   border-radius: 20px;
   font-size: 14px;
   color: $text-secondary;
