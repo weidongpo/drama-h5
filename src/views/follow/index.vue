@@ -77,7 +77,7 @@ onMounted(() => {
       id: 2, 
       title: '重生之商业女王', 
       cover: 'https://picsum.photos/200/280?random=11',
-      episodes: 80,
+      episodes: 98,
       currentEpisode: 56,
       lastWatchTime: '昨天'
     },
@@ -88,6 +88,46 @@ onMounted(() => {
       episodes: 65,
       currentEpisode: 18,
       lastWatchTime: '3天前'
+    },
+    { 
+      id: 4, 
+      title: '穿越之医妃倾天下', 
+      cover: 'https://picsum.photos/200/280?random=13',
+      episodes: 80,
+      currentEpisode: 45,
+      lastWatchTime: '5天前'
+    },
+    { 
+      id: 5, 
+      title: '消失的新娘', 
+      cover: 'https://picsum.photos/200/280?random=14',
+      episodes: 36,
+      currentEpisode: 36,
+      lastWatchTime: '1周前'
+    },
+    { 
+      id: 6, 
+      title: '霸道总裁的小娇妻', 
+      cover: 'https://picsum.photos/200/280?random=15',
+      episodes: 65,
+      currentEpisode: 28,
+      lastWatchTime: '1周前'
+    },
+    { 
+      id: 7, 
+      title: '凤逆天下：废材七小姐', 
+      cover: 'https://picsum.photos/200/280?random=16',
+      episodes: 96,
+      currentEpisode: 72,
+      lastWatchTime: '2周前'
+    },
+    { 
+      id: 8, 
+      title: '绝世武神', 
+      cover: 'https://picsum.photos/200/280?random=17',
+      episodes: 200,
+      currentEpisode: 88,
+      lastWatchTime: '2周前'
     }
   ]
 })

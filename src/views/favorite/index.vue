@@ -16,7 +16,7 @@
             @click="handleDramaClick(item)"
           >
             <div class="drama-cover">
-              <van-image :src="item.cover" fit="cover" class="cover-image" />
+              <van-image :src="item.cover" fit="cover" width="100%" height="100%" class="cover-image" />
               <div class="vip-tag" v-if="item.isVip">VIP</div>
               <div class="heart-icon">
                 <van-icon name="like" color="#ff4757" />
@@ -80,18 +80,29 @@ onMounted(() => {
     { id: 3, title: '穿越之医妃倾天下', cover: 'https://picsum.photos/300/400?random=22', views: '9800万', isVip: true },
     { id: 4, title: '总裁的替身新娘', cover: 'https://picsum.photos/300/400?random=23', views: '8500万', isVip: false },
     { id: 5, title: '落魄千金复仇记', cover: 'https://picsum.photos/300/400?random=24', views: '7200万', isVip: true },
-    { id: 6, title: '隐世高手在都市', cover: 'https://picsum.photos/300/400?random=25', views: '6800万', isVip: false }
+    { id: 6, title: '隐世高手在都市', cover: 'https://picsum.photos/300/400?random=25', views: '6800万', isVip: false },
+    { id: 7, title: '消失的新娘', cover: 'https://picsum.photos/300/400?random=26', views: '5500万', isVip: true },
+    { id: 8, title: '迷雾追踪', cover: 'https://picsum.photos/300/400?random=27', views: '4800万', isVip: false },
+    { id: 9, title: '霸道总裁的小娇妻', cover: 'https://picsum.photos/300/400?random=28', views: '8900万', isVip: true },
+    { id: 10, title: '凤逆天下：废材七小姐', cover: 'https://picsum.photos/300/400?random=29', views: '9200万', isVip: true },
+    { id: 11, title: '绝世武神', cover: 'https://picsum.photos/300/400?random=30', views: '1.5亿', isVip: true },
+    { id: 12, title: '国民老公带回家', cover: 'https://picsum.photos/300/400?random=31', views: '7800万', isVip: false }
   ]
   
   actorList.value = [
     { id: 1, name: '林雨晴', avatar: 'https://picsum.photos/120/120?random=30', works: 28 },
     { id: 2, name: '陈思远', avatar: 'https://picsum.photos/120/120?random=31', works: 35 },
-    { id: 3, name: '苏婉儿', avatar: 'https://picsum.photos/120/120?random=32', works: 22 }
+    { id: 3, name: '苏婉儿', avatar: 'https://picsum.photos/120/120?random=32', works: 22 },
+    { id: 4, name: '王浩然', avatar: 'https://picsum.photos/120/120?random=33', works: 42 },
+    { id: 5, name: '李梦瑶', avatar: 'https://picsum.photos/120/120?random=34', works: 18 },
+    { id: 6, name: '张子轩', avatar: 'https://picsum.photos/120/120?random=35', works: 31 }
   ]
   
   directorList.value = [
     { id: 1, name: '张艺', avatar: 'https://picsum.photos/120/120?random=40', works: 15 },
-    { id: 2, name: '李明', avatar: 'https://picsum.photos/120/120?random=41', works: 12 }
+    { id: 2, name: '李明', avatar: 'https://picsum.photos/120/120?random=41', works: 12 },
+    { id: 3, name: '王导', avatar: 'https://picsum.photos/120/120?random=42', works: 28 },
+    { id: 4, name: '陈导', avatar: 'https://picsum.photos/120/120?random=43', works: 20 }
   ]
 })
 
@@ -156,6 +167,8 @@ function handleDramaClick(item) {
 .drama-card {
   cursor: pointer;
   transition: transform 0.3s;
+  min-width: 0;
+  overflow: hidden;
   
   &:active {
     transform: scale(0.95);
@@ -164,15 +177,26 @@ function handleDramaClick(item) {
 
 .drama-cover {
   position: relative;
-  aspect-ratio: 3/4;
+  width: 100%;
+  padding-bottom: 133.33%;
   border-radius: $radius-md;
   overflow: hidden;
   margin-bottom: $spacing-sm;
 }
 
 .cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+}
+
+:deep(.cover-image .van-image__img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .vip-tag {
