@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>追剧达人 - 热门短剧</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1; // Keep one segment (drama-h5)
+      var l = window.location;
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    </script>
+    <script type="module" crossorigin src="/drama-h5/assets/index-BXfVA-Qj.js"></script>
+    <link rel="stylesheet" crossorigin href="/drama-h5/assets/index-BA4VeZtJ.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
