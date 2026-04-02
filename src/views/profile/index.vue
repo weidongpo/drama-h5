@@ -107,15 +107,27 @@ function goTo(path) {
 }
 
 function handleEdit() {
-  showToast('编辑功能开发中')
+  router.push('/profile/edit')
 }
 
 function handleVip() {
-  showToast('VIP开通功能开发中')
+  router.push('/pay?type=vip')
 }
 
 function handleMenu(type) {
-  showToast(`${type} 功能开发中`)
+  const routes = {
+    wallet: '/wallet',
+    tickets: '/tickets',
+    history: '/history',
+    download: '/download',
+    help: '/help',
+    setting: '/setting',
+    about: '/about'
+  }
+  
+  if (routes[type]) {
+    router.push(routes[type])
+  }
 }
 </script>
 

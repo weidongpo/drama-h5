@@ -88,14 +88,14 @@ function goBack() {
 }
 
 function handlePlay() {
-  showToast('开始播放...')
+  router.push(`/player/${drama.id}`)
 }
 
 function handleEpisode(ep) {
   if (ep > 18) {
     showToast('请先开通VIP或解锁全剧')
   } else {
-    showToast(`开始播放第 ${ep} 集`)
+    router.push(`/player/${drama.id}?episode=${ep}`)
   }
 }
 
@@ -109,27 +109,21 @@ function handleShare() {
 }
 
 async function handleBuy() {
-  try {
-    await showConfirmDialog({
-      title: '解锁全剧',
-      message: `确认支付 ¥${drama.price} 解锁全剧？`
-    })
-    showToast('支付功能开发中')
-  } catch {
-    // 取消
-  }
+  router.push({
+    path: '/pay',
+    query: {
+      type: 'drama',
+      id: drama.id,
+      title: drama.title,
+      cover: drama.cover,
+      episodes: drama.episodes,
+      price: drama.price
+    }
+  })
 }
 
 async function handleVip() {
-  try {
-    await showConfirmDialog({
-      title: '开通VIP',
-      message: `确认支付 ¥${drama.vipPrice}/月 开通VIP？`
-    })
-    showToast('支付功能开发中')
-  } catch {
-    // 取消
-  }
+  router.push('/pay?type=vip')
 }
 </script>
 

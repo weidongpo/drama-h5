@@ -36,6 +36,72 @@ const routes = [
     name: 'Detail',
     component: () => import('@/views/detail/index.vue'),
     meta: { title: '详情' }
+  },
+  {
+    path: '/pay',
+    name: 'Pay',
+    component: () => import('@/views/pay/index.vue'),
+    meta: { title: '支付' }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/views/search/index.vue'),
+    meta: { title: '搜索' }
+  },
+  {
+    path: '/player/:id',
+    name: 'Player',
+    component: () => import('@/views/player/index.vue'),
+    meta: { title: '播放' }
+  },
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import('@/views/notification/index.vue'),
+    meta: { title: '消息通知' }
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: () => import('@/views/category/index.vue'),
+    meta: { title: '分类' }
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: () => import('@/views/activity/index.vue'),
+    meta: { title: '活动' }
+  },
+  {
+    path: '/invite',
+    name: 'Invite',
+    component: () => import('@/views/invite/index.vue'),
+    meta: { title: '邀请好友' }
+  },
+  {
+    path: '/wallet',
+    name: 'Wallet',
+    component: () => import('@/views/wallet/index.vue'),
+    meta: { title: '我的钱包' }
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: () => import('@/views/history/index.vue'),
+    meta: { title: '观看历史' }
+  },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: () => import('@/views/setting/index.vue'),
+    meta: { title: '设置' }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('@/views/about/index.vue'),
+    meta: { title: '关于我们' }
   }
 ]
 

@@ -4,18 +4,19 @@
     <header class="header">
       <div class="header-title">🔥 追剧达人</div>
       <div class="header-icons">
-        <van-icon name="bell" size="24" color="#fff" />
-        <van-icon name="user-o" size="24" color="#fff" />
+        <van-icon name="bell" size="24" color="#fff" @click="handleNotification" />
+        <van-icon name="user-o" size="24" color="#fff" @click="goProfile" />
       </div>
     </header>
 
     <!-- 搜索栏 -->
-    <div class="search-bar">
+    <div class="search-bar" @click="goSearch">
       <van-search 
         v-model="searchText" 
         placeholder="搜索短剧、演员、导演" 
         shape="round"
         background="transparent"
+        readonly
       />
     </div>
 
@@ -35,12 +36,31 @@
     </div>
 
     <!-- 轮播图 -->
-    <div class="banner" @click="handleBannerClick(banners[0])" v-if="banners.length">
-      <van-image :src="banners[0].image" fit="cover" class="banner-image" />
-      <div class="banner-tag" v-if="banners[0].tag">{{ banners[0].tag }}</div>
-      <div class="banner-info">
-        <div class="banner-title">{{ banners[0].title }}</div>
-        <div class="banner-desc">播放量 {{ banners[0].views }} | 更新至第{{ banners[0].episodes }}集</div>
+    <div class="banner-section">
+      <div class="banner-list">
+        <div 
+          class="banner" 
+          :class="{ active: index === currentBanner }"
+          v-for="(banner, index) in banners" 
+          :key="banner.id"
+          @click="handleBannerClick(banner)"
+        >
+          <van-image :src="banner.image" fit="cover" class="banner-image" />
+          <div class="banner-tag" v-if="banner.tag">{{ banner.tag }}</div>
+          <div class="banner-info">
+            <div class="banner-title">{{ banner.title }}</div>
+            <div class="banner-desc">播放量 {{ banner.views }} | 更新至第{{ banner.episodes }}集</div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-dots" v-if="banners.length > 1">
+        <span 
+          class="dot" 
+          :class="{ active: index === currentBanner }"
+          v-for="(banner, index) in banners" 
+          :key="index"
+          @click="currentBanner = index"
+        ></span>
       </div>
     </div>
 
@@ -48,7 +68,7 @@
     <div class="section">
       <div class="section-title">
         <span>🔥 热门推荐</span>
-        <span class="more">查看更多 ></span>
+        <span class="more" @click="handleMoreClick">查看更多 ></span>
       </div>
       
       <div class="drama-grid">
@@ -87,12 +107,35 @@ const searchText = ref('')
 const categories = ref(dramaStore.categories)
 const banners = ref([])
 const recommendList = ref([])
+const currentBanner = ref(0)
 
 onMounted(async () => {
   // 加载数据
   banners.value = await dramaStore.fetchBanners()
   recommendList.value = await dramaStore.fetchRecommend()
+  
+  // 自动轮播
+  setInterval(() => {
+    if (banners.value.length > 1) {
+      currentBanner.value = (currentBanner.value + 1) % banners.value.length
+    }
+  }, 3000)
 })
+
+// 跳转搜索
+function goSearch() {
+  router.push('/search')
+}
+
+// 通知
+function handleNotification() {
+  router.push('/notification')
+}
+
+// 个人中心
+function goProfile() {
+  router.push('/profile')
+}
 
 // 切换分类
 function handleCategoryClick(categoryId) {
@@ -112,6 +155,11 @@ function handleBannerClick(banner) {
 function handleDramaClick(drama) {
   router.push(`/detail/${drama.id}`)
 }
+
+// 查看更多
+function handleMoreClick() {
+  router.push('/category')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -119,6 +167,7 @@ function handleDramaClick(drama) {
   min-height: 100vh;
   background: $bg-color;
   padding-bottom: 70px;
+  overflow-x: hidden;
 }
 
 .header {
@@ -169,6 +218,9 @@ function handleDramaClick(drama) {
   padding: 0 $spacing-lg;
   margin-bottom: $spacing-xl;
   overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
   
   &::-webkit-scrollbar {
     display: none;
@@ -185,12 +237,33 @@ function handleDramaClick(drama) {
   }
 }
 
-.banner {
+.banner-section {
   margin: 0 $spacing-lg $spacing-xl;
-  border-radius: $radius-lg;
-  overflow: hidden;
+  position: relative;
+  width: calc(100% - 32px);
+  max-width: 100%;
+}
+
+.banner-list {
   position: relative;
   aspect-ratio: 16/9;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  cursor: pointer;
+  
+  &.active {
+    opacity: 1;
+  }
 }
 
 .banner-image {
@@ -229,9 +302,33 @@ function handleDramaClick(drama) {
   color: $text-secondary;
 }
 
+.banner-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $bg-tertiary;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    &.active {
+      width: 20px;
+      border-radius: 3px;
+      background: $primary-color;
+    }
+  }
+}
+
 .section {
   padding: 0 $spacing-lg;
   margin-bottom: $spacing-xl;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -257,6 +354,7 @@ function handleDramaClick(drama) {
 .drama-card {
   cursor: pointer;
   transition: transform 0.3s;
+  min-width: 0;
   
   &:active {
     transform: scale(0.95);
@@ -269,6 +367,7 @@ function handleDramaClick(drama) {
   border-radius: $radius-md;
   overflow: hidden;
   margin-bottom: $spacing-sm;
+  width: 100%;
 }
 
 .cover-image {
@@ -304,6 +403,7 @@ function handleDramaClick(drama) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
 
 .drama-meta {
