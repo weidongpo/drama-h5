@@ -1,0 +1,222 @@
+<template>
+  <div class="follow-page">
+    <!-- 顶部导航 -->
+    <header class="header">
+      <div class="header-title">我的追剧</div>
+    </header>
+
+    <!-- 追剧列表 -->
+    <div class="drama-list">
+      <div 
+        class="drama-item" 
+        v-for="item in followList" 
+        :key="item.id"
+        @click="handleDramaClick(item)"
+      >
+        <div class="drama-cover">
+          <van-image :src="item.cover" fit="cover" class="cover-image" />
+          <div class="update-badge">更新至{{ item.episodes }}集</div>
+        </div>
+        <div class="drama-info">
+          <div>
+            <div class="drama-title">{{ item.title }}</div>
+            <div class="drama-progress">已看到 <span>第{{ item.currentEpisode }}集</span></div>
+            <div class="drama-meta">上次观看: {{ item.lastWatchTime }}</div>
+          </div>
+          <div class="drama-actions">
+            <van-button type="danger" size="small" round @click.stop="handleContinue(item)">
+              继续观看
+            </van-button>
+            <van-button size="small" round @click.stop="handleRemove(item)">
+              移除
+            </van-button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 空状态 -->
+      <van-empty 
+        v-if="!followList.length" 
+        description="还没有追剧记录"
+        image="search"
+      >
+        <van-button type="danger" round @click="goHome">去发现</van-button>
+      </van-empty>
+    </div>
+
+    <!-- 底部导航 -->
+    <BottomNav />
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { showConfirmDialog, showToast } from 'vant'
+import BottomNav from '@/components/BottomNav.vue'
+
+const router = useRouter()
+
+const followList = ref([])
+
+onMounted(() => {
+  // 模拟数据
+  followList.value = [
+    { 
+      id: 1, 
+      title: '豪门千金的逆袭人生', 
+      cover: 'https://picsum.photos/200/280?random=10',
+      episodes: 86,
+      currentEpisode: 32,
+      lastWatchTime: '2小时前'
+    },
+    { 
+      id: 2, 
+      title: '重生之商业女王', 
+      cover: 'https://picsum.photos/200/280?random=11',
+      episodes: 80,
+      currentEpisode: 56,
+      lastWatchTime: '昨天'
+    },
+    { 
+      id: 3, 
+      title: '总裁的替身新娘', 
+      cover: 'https://picsum.photos/200/280?random=12',
+      episodes: 65,
+      currentEpisode: 18,
+      lastWatchTime: '3天前'
+    }
+  ]
+})
+
+function handleDramaClick(item) {
+  router.push(`/detail/${item.id}`)
+}
+
+function handleContinue(item) {
+  router.push(`/detail/${item.id}?episode=${item.currentEpisode}`)
+}
+
+async function handleRemove(item) {
+  try {
+    await showConfirmDialog({
+      title: '提示',
+      message: '确定要移除这部短剧吗？'
+    })
+    followList.value = followList.value.filter(i => i.id !== item.id)
+    showToast('已移除')
+  } catch {
+    // 取消
+  }
+}
+
+function goHome() {
+  router.push('/')
+}
+</script>
+
+<style lang="scss" scoped>
+.follow-page {
+  min-height: 100vh;
+  background: $bg-color;
+  padding-bottom: 70px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  background: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-bottom: 1px solid $border-light;
+}
+
+.header-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.drama-list {
+  padding: 60px $spacing-lg $spacing-lg;
+}
+
+.drama-item {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-lg 0;
+  border-bottom: 1px solid $border-light;
+  cursor: pointer;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.drama-cover {
+  width: 100px;
+  height: 140px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.update-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($primary-color, 0.9);
+  font-size: 10px;
+  padding: 3px 0;
+  text-align: center;
+}
+
+.drama-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drama-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: $spacing-sm;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drama-progress {
+  font-size: 12px;
+  color: $text-secondary;
+  margin-bottom: $spacing-xs;
+  
+  span {
+    color: $primary-color;
+  }
+}
+
+.drama-meta {
+  font-size: 12px;
+  color: $text-tertiary;
+}
+
+.drama-actions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+}
+</style>
