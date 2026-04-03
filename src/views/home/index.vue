@@ -2,6 +2,12 @@
   <div class="home-page">
     <!-- 顶部导航 -->
     <header class="header">
+      <div class="header-left">
+        <div class="back-btn" @click="goBackToMiniProgram">
+          <van-icon name="arrow-left" size="18" color="#fff" />
+          <span>返回</span>
+        </div>
+      </div>
       <div class="header-title">🔥 视界剧场</div>
       <div class="header-icons">
         <van-icon name="bell" size="24" color="#fff" @click="handleNotification" />
@@ -125,6 +131,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { showToast } from 'vant'
 import { useDramaStore } from '@/stores/drama'
 import BottomNav from '@/components/BottomNav.vue'
 
@@ -203,6 +210,17 @@ function goProfile() {
   router.push('/profile')
 }
 
+// 返回小程序
+function goBackToMiniProgram() {
+  // 判断是否在小程序环境
+  if (typeof wx !== 'undefined' && wx.miniProgram) {
+    wx.miniProgram.navigateBack()
+  } else {
+    // 非小程序环境，提示用户
+    showToast('请在小程序中使用此功能')
+  }
+}
+
 // 切换分类
 async function handleCategoryClick(categoryId) {
   dramaStore.setCategory(categoryId)
@@ -259,6 +277,30 @@ function handleMoreClick() {
   font-size: 18px;
   font-weight: 600;
   color: $primary-color;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  
+  span {
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  &:active {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .header-icons {

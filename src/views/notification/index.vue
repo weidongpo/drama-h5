@@ -209,6 +209,7 @@ function goBack() {
 
 .notification-list {
   padding: 12px 16px;
+  margin-top: 44px; // 为 sticky tabs 留出空间
 }
 
 .notification-item {
