@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="home-page">
     <!-- 顶部导航 -->
     <header class="header">
@@ -266,7 +266,7 @@ function handleMoreClick() {
 <style lang="scss" scoped>
 .home-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 70px;
   overflow-x: hidden;
 }
@@ -288,7 +288,7 @@ function handleMoreClick() {
 .header-title {
   font-size: 18px;
   font-weight: 600;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .header-left {
@@ -324,16 +324,16 @@ function handleMoreClick() {
   margin: 60px $spacing-lg $spacing-md;
   
   :deep(.van-search__content) {
-    background: $bg-secondary;
+    background: var(--bg-secondary);
     border-radius: 20px;
   }
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-field__control::placeholder) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -357,8 +357,8 @@ function handleMoreClick() {
   cursor: pointer;
   
   &.van-tag--default {
-    background: $bg-secondary;
-    color: $text-secondary;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
   }
 }
 
@@ -401,7 +401,7 @@ function handleMoreClick() {
   position: absolute;
   top: $spacing-md;
   left: $spacing-md;
-  background: $primary-color;
+  background: var(--primary-color);
   padding: $spacing-xs $spacing-md;
   border-radius: $radius-sm;
   font-size: 11px;
@@ -425,7 +425,7 @@ function handleMoreClick() {
 
 .banner-desc {
   font-size: 12px;
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 .banner-dots {
@@ -438,14 +438,14 @@ function handleMoreClick() {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
     cursor: pointer;
     transition: all 0.3s;
     
     &.active {
       width: 20px;
       border-radius: 3px;
-      background: $primary-color;
+      background: var(--primary-color);
     }
   }
 }
@@ -467,7 +467,7 @@ function handleMoreClick() {
   
   .more {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -505,7 +505,7 @@ function handleMoreClick() {
   position: absolute;
   top: $spacing-sm;
   right: $spacing-sm;
-  background: $vip-gradient;
+  background: var(--vip-gradient);
   padding: 2px 6px;
   border-radius: $radius-sm;
   font-size: 10px;
@@ -546,7 +546,7 @@ function handleMoreClick() {
 
 .drama-meta {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: $spacing-xs;
 }
 

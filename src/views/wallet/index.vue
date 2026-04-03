@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="wallet-page">
     <!-- 头部 -->
     <header class="header">
@@ -124,7 +124,7 @@ function goBack() {
 <style lang="scss" scoped>
 .wallet-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
 }
 
 .header {
@@ -133,12 +133,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -160,7 +160,7 @@ function goBack() {
 
 .balance-card {
   margin: 66px 16px 16px;
-  background: linear-gradient(135deg, $primary-color 0%, #ff6b81 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b81 100%);
   border-radius: 16px;
   padding: 24px;
 }
@@ -191,19 +191,19 @@ function goBack() {
 
 .record-section {
   :deep(.van-tabs__nav) {
-    background: $bg-color;
+    background: var(--bg-color);
   }
   
   :deep(.van-tab) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
   
   :deep(.van-tab--active) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-tabs__line) {
-    background: $primary-color;
+    background: var(--primary-color);
   }
 }
 
@@ -216,7 +216,7 @@ function goBack() {
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   margin-bottom: 12px;
 }
@@ -235,8 +235,8 @@ function goBack() {
   }
   
   &.expense {
-    background: rgba($primary-color, 0.15);
-    color: $primary-color;
+    background: rgba(var(--primary-color), 0.15);
+    color: var(--primary-color);
   }
 }
 
@@ -251,7 +251,7 @@ function goBack() {
 
 .record-time {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .record-amount {

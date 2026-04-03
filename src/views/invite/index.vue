@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="invite-page">
     <!-- 头部 -->
     <header class="header">
@@ -161,7 +161,7 @@ function goBack() {
 <style lang="scss" scoped>
 .invite-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -171,12 +171,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -201,7 +201,7 @@ function goBack() {
 }
 
 .card-bg {
-  background: linear-gradient(135deg, $primary-color 0%, #ff6b81 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b81 100%);
   border-radius: 16px;
   padding: 24px;
 }
@@ -273,7 +273,7 @@ function goBack() {
 .share-options {
   display: flex;
   justify-content: space-around;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 20px;
 }
@@ -287,7 +287,7 @@ function goBack() {
   
   span {
     font-size: 12px;
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 
@@ -313,7 +313,7 @@ function goBack() {
 }
 
 .rules-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
@@ -323,7 +323,7 @@ function goBack() {
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -333,7 +333,7 @@ function goBack() {
 .rule-num {
   width: 24px;
   height: 24px;
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -347,7 +347,7 @@ function goBack() {
 }
 
 .record-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
@@ -357,7 +357,7 @@ function goBack() {
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -375,12 +375,12 @@ function goBack() {
 
 .record-time {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .record-reward {
   font-size: 14px;
-  color: $primary-color;
+  color: var(--primary-color);
   font-weight: 500;
 }
 </style>

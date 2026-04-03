@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="follow-page">
     <!-- 顶部导航 -->
     <header class="header">
@@ -179,7 +179,7 @@ function goHome() {
 <style lang="scss" scoped>
 .follow-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 70px;
 }
 
@@ -189,12 +189,12 @@ function goHome() {
   left: 0;
   right: 0;
   height: $header-height;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .header-title {
@@ -210,7 +210,7 @@ function goHome() {
   display: flex;
   gap: $spacing-md;
   padding: $spacing-lg 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   align-items: flex-start;
   
@@ -237,7 +237,7 @@ function goHome() {
   position: absolute;
   top: $spacing-sm;
   right: $spacing-sm;
-  background: $vip-gradient;
+  background: var(--vip-gradient);
   padding: 2px 6px;
   border-radius: $radius-sm;
   font-size: 10px;
@@ -262,7 +262,7 @@ function goHome() {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba($primary-color, 0.9);
+  background: rgba(var(--primary-color), 0.9);
   font-size: 10px;
   padding: 3px 0;
   text-align: center;
@@ -294,22 +294,22 @@ function goHome() {
 
 .drama-progress {
   font-size: 12px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: $spacing-xs;
   
   span {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
 .drama-meta {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .progress-bar {
   height: 4px;
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 2px;
   margin: $spacing-sm 0;
   overflow: hidden;
@@ -317,7 +317,7 @@ function goHome() {
 
 .progress-fill {
   height: 100%;
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 2px;
   transition: width 0.3s;
 }

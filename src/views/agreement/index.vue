@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="agreement-page">
     <!-- 头部 -->
     <header class="header">
@@ -89,7 +89,7 @@ function goBack() {
 <style lang="scss" scoped>
 .agreement-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -99,12 +99,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -135,7 +135,7 @@ function goBack() {
   
   .update-time {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 24px;
   }
 }
@@ -147,12 +147,12 @@ section {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 12px;
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   p {
     font-size: 14px;
-    color: $text-secondary;
+    color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 8px;
   }

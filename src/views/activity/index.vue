@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="activity-page">
     <!-- 头部 -->
     <header class="header">
@@ -121,7 +121,7 @@ function goBack() {
 <style lang="scss" scoped>
 .activity-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -131,12 +131,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -210,13 +210,13 @@ function goBack() {
 .activity-item {
   display: flex;
   gap: 12px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   
   &:active {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
   }
 }
 
@@ -244,12 +244,12 @@ function goBack() {
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .activity-desc {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .activity-reward {

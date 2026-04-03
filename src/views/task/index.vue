@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="task-page">
     <!-- 顶部导航 -->
     <header class="header">
@@ -240,7 +240,7 @@ function handleShareSelect(option) {
 <style lang="scss" scoped>
 .task-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 70px;
 }
 
@@ -250,12 +250,12 @@ function handleShareSelect(option) {
   left: 0;
   right: 0;
   height: $header-height;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .header-title {
@@ -265,7 +265,7 @@ function handleShareSelect(option) {
 
 .points-card {
   margin: 60px $spacing-lg $spacing-xl;
-  background: $primary-gradient;
+  background: var(--primary-gradient);
   border-radius: $radius-xl;
   padding: $spacing-xxl;
   position: relative;
@@ -327,7 +327,7 @@ function handleShareSelect(option) {
   display: flex;
   align-items: center;
   padding: $spacing-lg;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: $radius-lg;
   margin-bottom: $spacing-md;
 }
@@ -335,7 +335,7 @@ function handleShareSelect(option) {
 .task-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, $bg-tertiary 0%, $bg-secondary 100%);
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
   border-radius: $radius-lg;
   display: flex;
   align-items: center;
@@ -356,7 +356,7 @@ function handleShareSelect(option) {
 
 .task-desc {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .task-reward {
@@ -372,7 +372,7 @@ function handleShareSelect(option) {
 
 .progress-text {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: $spacing-xs;
 }
 </style>

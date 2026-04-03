@@ -14,6 +14,14 @@
         <van-cell title="账号与安全" is-link @click="handleSetting('account')" />
         <van-cell title="隐私设置" is-link @click="handleSetting('privacy')" />
         <van-cell title="通知设置" is-link @click="handleSetting('notification')" />
+        <van-cell title="外观模式" @click="toggleTheme">
+          <template #value>
+            <span class="theme-value">{{ themeStore.theme === 'dark' ? '深色模式' : '浅色模式' }}</span>
+          </template>
+          <template #right-icon>
+            <van-icon :name="themeStore.theme === 'dark' ? 'moon-o' : 'sun-o'" />
+          </template>
+        </van-cell>
       </van-cell-group>
     </div>
 
@@ -50,8 +58,10 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { showConfirmDialog, showToast } from 'vant'
+import { useThemeStore } from '@/stores/theme'
 
 const router = useRouter()
+const themeStore = useThemeStore()
 const cacheSize = ref('128.5MB')
 
 function handleSetting(type) {
@@ -91,12 +101,16 @@ function checkUpdate() {
 function goBack() {
   router.back()
 }
+
+function toggleTheme() {
+  themeStore.toggleTheme()
+}
 </script>
 
 <style lang="scss" scoped>
 .setting-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -106,12 +120,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -145,26 +159,31 @@ function goBack() {
 
 :deep(.van-cell-group--inset) {
   margin: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
 }
 
 :deep(.van-cell) {
   background: transparent;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-cell::after) {
-  border-color: $border-light;
+  border-color: var(--border-light);
 }
 
 :deep(.van-cell .van-cell__value) {
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .cache-size, .version {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
+}
+
+.theme-value {
+  font-size: 14px;
+  color: var(--text-tertiary);
 }
 
 </style>

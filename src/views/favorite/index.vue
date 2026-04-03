@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="favorite-page">
     <!-- 顶部导航 -->
     <header class="header">
@@ -121,7 +121,7 @@ function handleDramaClick(item) {
 <style lang="scss" scoped>
 .favorite-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 70px;
 }
 
@@ -131,12 +131,12 @@ function handleDramaClick(item) {
   left: 0;
   right: 0;
   height: $header-height;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .header-title {
@@ -148,19 +148,19 @@ function handleDramaClick(item) {
   padding-top: $header-height;
   
   :deep(.van-tabs__nav) {
-    background: $bg-color;
+    background: var(--bg-color);
   }
   
   :deep(.van-tab) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
   
   :deep(.van-tab--active) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-tabs__line) {
-    background: $primary-color;
+    background: var(--primary-color);
   }
 }
 
@@ -210,7 +210,7 @@ function handleDramaClick(item) {
   position: absolute;
   top: $spacing-sm;
   right: $spacing-sm;
-  background: $vip-gradient;
+  background: var(--vip-gradient);
   padding: 2px 6px;
   border-radius: $radius-sm;
   font-size: 10px;
@@ -253,7 +253,7 @@ function handleDramaClick(item) {
 
 .drama-meta {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: $spacing-xs;
 }
 
@@ -266,7 +266,7 @@ function handleDramaClick(item) {
   align-items: center;
   gap: $spacing-md;
   padding: $spacing-md 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -285,6 +285,6 @@ function handleDramaClick(item) {
 
 .actor-works, .director-works {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 </style>

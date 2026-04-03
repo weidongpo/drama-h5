@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="category-page">
     <!-- 头部 -->
     <header class="header">
@@ -273,7 +273,7 @@ function goBack() {
 <style lang="scss" scoped>
 .category-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
   overflow-x: hidden;
 }
@@ -284,12 +284,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn, .filter-btn {
@@ -330,14 +330,14 @@ function goBack() {
 .category-tab {
   flex-shrink: 0;
   padding: 8px 20px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 20px;
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   cursor: pointer;
   
   &.active {
-    background: $primary-color;
+    background: var(--primary-color);
     color: #fff;
   }
 }
@@ -346,16 +346,16 @@ function goBack() {
   display: flex;
   gap: 24px;
   padding: 12px 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .sort-item {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   cursor: pointer;
   
   &.active {
-    color: $primary-color;
+    color: var(--primary-color);
     font-weight: 500;
   }
 }
@@ -368,7 +368,7 @@ function goBack() {
   display: flex;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -407,7 +407,7 @@ function goBack() {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba($primary-color, 0.9);
+  background: rgba(var(--primary-color), 0.9);
   font-size: 10px;
   padding: 3px 0;
   text-align: center;
@@ -442,15 +442,15 @@ function goBack() {
   margin-bottom: 6px;
   
   :deep(.van-tag) {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
     border-color: transparent;
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 
 .drama-desc {
   font-size: 13px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -462,12 +462,12 @@ function goBack() {
   display: flex;
   gap: 12px;
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 // 筛选弹窗
 .filter-popup {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -476,12 +476,12 @@ function goBack() {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   h3 {
     font-size: 16px;
     font-weight: 600;
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
@@ -490,7 +490,7 @@ function goBack() {
   
   h4 {
     font-size: 14px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 12px;
   }
 }
@@ -502,15 +502,15 @@ function goBack() {
 
 .filter-option {
   padding: 8px 20px;
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 20px;
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   cursor: pointer;
   
   &.active {
-    background: rgba($primary-color, 0.15);
-    color: $primary-color;
+    background: rgba(var(--primary-color), 0.15);
+    color: var(--primary-color);
   }
 }
 
@@ -518,6 +518,6 @@ function goBack() {
   display: flex;
   gap: 12px;
   padding: 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 </style>

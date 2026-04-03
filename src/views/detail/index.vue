@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="detail-page">
     <!-- 播放选择弹窗 -->
     <van-dialog 
@@ -249,7 +249,7 @@ async function handleVip() {
 <style lang="scss" scoped>
 .detail-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 80px;
 }
 
@@ -333,7 +333,7 @@ async function handleVip() {
   transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
-  background: rgba($primary-color, 0.9);
+  background: rgba(var(--primary-color), 0.9);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -362,15 +362,15 @@ async function handleVip() {
   margin-bottom: $spacing-md;
   
   :deep(.van-tag) {
-    background: $bg-secondary;
+    background: var(--bg-secondary);
     border-color: transparent;
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 
 .detail-desc {
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: $spacing-xl;
 }
@@ -390,7 +390,7 @@ async function handleVip() {
 
 .episode-item {
   aspect-ratio: 1;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: $radius-md;
   display: flex;
   flex-direction: column;
@@ -431,12 +431,12 @@ async function handleVip() {
   left: 0;
   right: 0;
   height: 70px;
-  background: $bg-card;
+  background: var(--bg-card);
   display: flex;
   align-items: center;
   padding: 0 $spacing-lg;
   gap: $spacing-md;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--border-color);
 }
 
 .action-btn {
@@ -448,7 +448,7 @@ async function handleVip() {
   
   span {
     font-size: 10px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="history-page">
     <!-- 头部 -->
     <header class="header">
@@ -91,7 +91,7 @@ function goBack() {
 <style lang="scss" scoped>
 .history-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
 }
 
 .header {
@@ -100,12 +100,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -129,7 +129,7 @@ function goBack() {
   position: absolute;
   right: 16px;
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .history-list {
@@ -140,7 +140,7 @@ function goBack() {
   display: flex;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -173,7 +173,7 @@ function goBack() {
 
 .progress-bar {
   height: 100%;
-  background: $primary-color;
+  background: var(--primary-color);
 }
 
 .play-icon {
@@ -208,12 +208,12 @@ function goBack() {
 
 .history-episode {
   font-size: 13px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
 .history-time {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 </style>

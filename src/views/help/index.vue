@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="help-page">
     <!-- 头部 -->
     <header class="header">
@@ -114,7 +114,7 @@ function handleSubmit() {
 <style lang="scss" scoped>
 .help-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -124,12 +124,12 @@ function handleSubmit() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn, .header-right {
@@ -168,45 +168,45 @@ function handleSubmit() {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
 }
 
 .faq-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
   
   :deep(.van-collapse-item__content) {
-    background: $bg-tertiary;
-    color: $text-secondary;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
     font-size: 13px;
     line-height: 1.6;
   }
   
   :deep(.van-cell) {
     background: transparent;
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-cell::after) {
-    border-color: $border-light;
+    border-color: var(--border-light);
   }
 }
 
 .feedback-form {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
 
 .feedback-input {
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 8px;
   margin-bottom: 16px;
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
@@ -227,20 +227,20 @@ function handleSubmit() {
 
 .type-option {
   padding: 8px 16px;
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 20px;
   font-size: 13px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   cursor: pointer;
   
   &.active {
-    background: rgba($primary-color, 0.15);
-    color: $primary-color;
+    background: rgba(var(--primary-color), 0.15);
+    color: var(--primary-color);
   }
 }
 
 .contact-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
@@ -250,7 +250,7 @@ function handleSubmit() {
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -258,7 +258,7 @@ function handleSubmit() {
   
   span {
     font-size: 14px;
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 </style>

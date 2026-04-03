@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="privacy-setting-page">
     <!-- 头部 -->
     <header class="header">
@@ -114,7 +114,7 @@ function goBack() {
 <style lang="scss" scoped>
 .privacy-setting-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -124,12 +124,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -160,27 +160,27 @@ function goBack() {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
   padding-left: 4px;
 }
 
 :deep(.van-cell-group--inset) {
   margin: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
 }
 
 :deep(.van-cell) {
   background: transparent;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-cell::after) {
-  border-color: $border-light;
+  border-color: var(--border-light);
 }
 
 :deep(.van-switch--on) {
-  background: $primary-color;
+  background: var(--primary-color);
 }
 </style>

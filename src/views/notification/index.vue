@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="notification-page">
     <!-- 头部 -->
     <header class="header">
@@ -157,7 +157,7 @@ function goBack() {
 <style lang="scss" scoped>
 .notification-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
 }
 
 .header {
@@ -166,12 +166,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -192,19 +192,19 @@ function goBack() {
 }
 
 :deep(.van-tabs__nav) {
-  background: $bg-color;
+  background: var(--bg-color);
 }
 
 :deep(.van-tab) {
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 :deep(.van-tab--active) {
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-tabs__line) {
-  background: $primary-color;
+  background: var(--primary-color);
 }
 
 .notification-list {
@@ -217,14 +217,14 @@ function goBack() {
   align-items: flex-start;
   gap: 12px;
   padding: 16px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   margin-bottom: 12px;
   cursor: pointer;
   position: relative;
   
   &:active {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
   }
 }
 
@@ -248,8 +248,8 @@ function goBack() {
   }
   
   &.update {
-    background: rgba($primary-color, 0.15);
-    color: $primary-color;
+    background: rgba(var(--primary-color), 0.15);
+    color: var(--primary-color);
   }
 }
 
@@ -265,7 +265,7 @@ function goBack() {
 
 .notification-desc {
   font-size: 13px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: 4px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -275,7 +275,7 @@ function goBack() {
 
 .notification-time {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .notification-badge {
@@ -284,7 +284,7 @@ function goBack() {
   right: 16px;
   width: 8px;
   height: 8px;
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 50%;
 }
 </style>

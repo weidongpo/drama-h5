@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="recharge-page">
     <!-- 头部 -->
     <header class="header">
@@ -147,7 +147,7 @@ function handlePay() {
 <style lang="scss" scoped>
 .recharge-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 80px;
 }
 
@@ -157,12 +157,12 @@ function handlePay() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn, .header-right {
@@ -216,7 +216,7 @@ function handlePay() {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
 }
 
@@ -227,7 +227,7 @@ function handlePay() {
 }
 
 .amount-item {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px 8px;
   text-align: center;
@@ -236,8 +236,8 @@ function handlePay() {
   position: relative;
   
   &.active {
-    border-color: $primary-color;
-    background: rgba($primary-color, 0.1);
+    border-color: var(--primary-color);
+    background: rgba(var(--primary-color), 0.1);
   }
 }
 
@@ -249,7 +249,7 @@ function handlePay() {
 
 .amount-price {
   font-size: 13px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .amount-bonus {
@@ -265,21 +265,21 @@ function handlePay() {
 }
 
 .custom-input {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
 .input-tip {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .payment-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -289,7 +289,7 @@ function handlePay() {
   align-items: center;
   gap: 12px;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -303,13 +303,13 @@ function handlePay() {
 }
 
 .notice-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
   
   p {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     line-height: 2;
   }
 }
@@ -319,12 +319,12 @@ function handlePay() {
   bottom: 0;
   left: 0;
   right: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 
 .pay-info {
@@ -334,6 +334,6 @@ function handlePay() {
 .pay-amount {
   font-size: 20px;
   font-weight: 700;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 </style>

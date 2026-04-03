@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="download-page">
     <!-- 头部 -->
     <header class="header">
@@ -106,7 +106,7 @@ async function handleDelete(item) {
 <style lang="scss" scoped>
 .download-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 100px;
 }
 
@@ -116,12 +116,12 @@ async function handleDelete(item) {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn, .header-right {
@@ -156,7 +156,7 @@ async function handleDelete(item) {
   display: flex;
   gap: 12px;
   padding: 16px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .download-cover {
@@ -178,7 +178,7 @@ async function handleDelete(item) {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba($primary-color, 0.9);
+  background: rgba(var(--primary-color), 0.9);
   font-size: 10px;
   padding: 2px 0;
   text-align: center;
@@ -197,13 +197,13 @@ async function handleDelete(item) {
 
 .download-meta {
   font-size: 12px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
 .download-size {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .download-actions {
@@ -222,14 +222,14 @@ async function handleDelete(item) {
   bottom: 0;
   left: 0;
   right: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   padding: 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 
 .storage-bar {
   height: 8px;
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 8px;
@@ -237,13 +237,13 @@ async function handleDelete(item) {
 
 .storage-used {
   height: 100%;
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 4px;
 }
 
 .storage-text {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   text-align: center;
 }
 </style>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="account-setting-page">
     <!-- 头部 -->
     <header class="header">
@@ -151,7 +151,7 @@ async function handleDeleteAccount() {
 <style lang="scss" scoped>
 .account-setting-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -161,12 +161,12 @@ async function handleDeleteAccount() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -197,28 +197,28 @@ async function handleDeleteAccount() {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
   padding-left: 4px;
 }
 
 :deep(.van-cell-group--inset) {
   margin: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
 }
 
 :deep(.van-cell) {
   background: transparent;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-cell::after) {
-  border-color: $border-light;
+  border-color: var(--border-light);
 }
 
 :deep(.van-cell .van-cell__value) {
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .text-warning {
@@ -234,12 +234,12 @@ async function handleDeleteAccount() {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   h3 {
     font-size: 16px;
     font-weight: 600;
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
@@ -247,18 +247,18 @@ async function handleDeleteAccount() {
   padding: 16px;
   
   :deep(.van-cell) {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
     border-radius: 8px;
     margin-bottom: 12px;
     padding: 12px;
   }
   
   :deep(.van-field__label) {
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
     letter-spacing: 4px;
   }
   
@@ -269,6 +269,6 @@ async function handleDeleteAccount() {
 
 .popup-actions {
   padding: 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 </style>

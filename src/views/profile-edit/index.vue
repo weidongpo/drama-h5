@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="edit-page">
     <!-- 头部 -->
     <header class="header">
@@ -238,7 +238,7 @@ function confirmPhone() {
 <style lang="scss" scoped>
 .edit-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -248,12 +248,12 @@ function confirmPhone() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -272,7 +272,7 @@ function confirmPhone() {
   position: absolute;
   right: 16px;
   font-size: 14px;
-  color: $primary-color;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -299,17 +299,17 @@ function confirmPhone() {
   right: 0;
   width: 28px;
   height: 28px;
-  background: $primary-color;
+  background: var(--primary-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid $bg-color;
+  border: 2px solid var(--bg-color);
 }
 
 .avatar-tip {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: 8px;
 }
 
@@ -319,29 +319,29 @@ function confirmPhone() {
   
   :deep(.van-cell-group--inset) {
     margin: 0;
-    background: $bg-secondary;
+    background: var(--bg-secondary);
     border-radius: 12px;
   }
   
   :deep(.van-cell) {
     background: transparent;
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-cell::after) {
-    border-color: $border-light;
+    border-color: var(--border-light);
   }
   
   :deep(.van-field__label) {
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-cell__value) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -355,12 +355,12 @@ function confirmPhone() {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   h3 {
     font-size: 16px;
     font-weight: 600;
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
@@ -368,19 +368,19 @@ function confirmPhone() {
   padding: 16px;
   
   :deep(.van-cell) {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
     border-radius: 8px;
     margin-bottom: 12px;
     padding: 12px;
   }
   
   :deep(.van-field__label) {
-    color: $text-secondary;
+    color: var(--text-secondary);
     width: 60px;
   }
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
@@ -388,6 +388,6 @@ function confirmPhone() {
   display: flex;
   gap: 12px;
   padding: 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 </style>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="tickets-page">
     <!-- 头部 -->
     <header class="header">
@@ -99,7 +99,7 @@ function handleBuy() {
 <style lang="scss" scoped>
 .tickets-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -109,12 +109,12 @@ function handleBuy() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn, .header-right {
@@ -170,12 +170,12 @@ function handleBuy() {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
 }
 
 .record-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -185,7 +185,7 @@ function handleBuy() {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -199,7 +199,7 @@ function handleBuy() {
 
 .record-time {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .record-amount {
@@ -213,7 +213,7 @@ function handleBuy() {
 }
 
 .ways-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -223,7 +223,7 @@ function handleBuy() {
   align-items: center;
   gap: 12px;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -231,7 +231,7 @@ function handleBuy() {
   }
   
   &:active {
-    background: $bg-tertiary;
+    background: var(--bg-tertiary);
   }
 }
 
@@ -247,6 +247,6 @@ function handleBuy() {
 
 .way-desc {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 </style>

@@ -1,0 +1,84 @@
+// ============================================
+// 主题变量 - CSS 自定义属性
+// ============================================
+
+// 暗色主题（默认）
+:root, [data-theme="dark"] {
+  // 主题色
+  --primary-color: #ff4757;
+  --primary-gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  --vip-gradient: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  
+  // 背景色
+  --bg-color: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-card: #111;
+  
+  // 文字颜色
+  --text-primary: #fff;
+  --text-secondary: #999;
+  --text-tertiary: #666;
+  
+  // 边框
+  --border-color: #222;
+  --border-light: #1a1a1a;
+  
+  // 遮罩层
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  
+  // Tabbar
+  --tabbar-inactive: #666;
+}
+
+// 亮色主题
+[data-theme="light"] {
+  // 主题色（保持不变）
+  --primary-color: #ff4757;
+  --primary-gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  --vip-gradient: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  
+  // 背景色
+  --bg-color: #f5f5f5;
+  --bg-secondary: #fff;
+  --bg-tertiary: #eee;
+  --bg-card: #fff;
+  
+  // 文字颜色
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  
+  // 边框
+  --border-color: #e5e5e5;
+  --border-light: #f0f0f0;
+  
+  // 遮罩层
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  
+  // Tabbar
+  --tabbar-inactive: #999;
+}
+
+// ============================================
+// 非颜色变量（保持不变）
+// ============================================
+
+// 圆角
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-round: 20px;
+
+// 间距
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 20px;
+$spacing-xxl: 24px;
+
+// 底部导航高度
+$bottom-nav-height: 60px;
+$header-height: 50px;

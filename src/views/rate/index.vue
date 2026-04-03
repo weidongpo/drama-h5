@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="rate-page">
     <!-- 头部 -->
     <header class="header">
@@ -133,7 +133,7 @@ function goToStore() {
 <style lang="scss" scoped>
 .rate-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -143,12 +143,12 @@ function goToStore() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -176,7 +176,7 @@ function goToStore() {
 .logo {
   width: 80px;
   height: 80px;
-  background: rgba($primary-color, 0.1);
+  background: rgba(var(--primary-color), 0.1);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -192,7 +192,7 @@ h3 {
 
 .desc {
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: 24px;
 }
 
@@ -201,7 +201,7 @@ h3 {
   
   .rating-text {
     font-size: 14px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-top: 12px;
   }
 }
@@ -213,7 +213,7 @@ h3 {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
   text-align: center;
 }
@@ -227,15 +227,15 @@ h3 {
 
 .tag-item {
   padding: 8px 16px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 20px;
   font-size: 13px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   cursor: pointer;
   
   &.active {
-    background: rgba($primary-color, 0.15);
-    color: $primary-color;
+    background: rgba(var(--primary-color), 0.15);
+    color: var(--primary-color);
   }
 }
 
@@ -244,22 +244,22 @@ h3 {
 }
 
 .feedback-input {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
 }
 
 .store-rating {
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
   
   p {
     font-size: 14px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 12px;
   }
 }

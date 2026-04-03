@@ -1,38 +1,30 @@
+// ============================================
+// 主题变量映射
+// 使用 CSS 变量实现主题切换
+// ============================================
+
+// 导入主题定义
+@import './themes.scss';
+
+// SCSS 变量映射到 CSS 变量（用于支持旧的 $变量语法）
+// 注意：这些变量在运行时无法动态切换，仅用于编译时计算
+
 // 主题色
-$primary-color: #ff4757;
-$primary-gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
-$vip-gradient: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+$primary-color: var(--primary-color);
+$primary-gradient: var(--primary-gradient);
+$vip-gradient: var(--vip-gradient);
 
 // 背景色
-$bg-color: #0a0a0a;
-$bg-secondary: #1a1a1a;
-$bg-tertiary: #2a2a2a;
-$bg-card: #111;
+$bg-color: var(--bg-color);
+$bg-secondary: var(--bg-secondary);
+$bg-tertiary: var(--bg-tertiary);
+$bg-card: var(--bg-card);
 
 // 文字颜色
-$text-primary: #fff;
-$text-secondary: #999;
-$text-tertiary: #666;
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-tertiary: var(--text-tertiary);
 
 // 边框
-$border-color: #222;
-$border-light: #1a1a1a;
-
-// 圆角
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
-$radius-round: 20px;
-
-// 间距
-$spacing-xs: 4px;
-$spacing-sm: 8px;
-$spacing-md: 12px;
-$spacing-lg: 16px;
-$spacing-xl: 20px;
-$spacing-xxl: 24px;
-
-// 底部导航高度
-$bottom-nav-height: 60px;
-$header-height: 50px;
+$border-color: var(--border-color);
+$border-light: var(--border-light);

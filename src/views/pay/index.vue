@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="pay-page">
     <!-- 头部 -->
     <header class="header">
@@ -315,7 +315,7 @@ function goBack() {
 <style lang="scss" scoped>
 .pay-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 100px;
 }
 
@@ -325,12 +325,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -352,7 +352,7 @@ function goBack() {
 
 .order-card {
   margin: 66px 16px 16px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
@@ -363,7 +363,7 @@ function goBack() {
   gap: 8px;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   span {
     font-size: 16px;
@@ -379,7 +379,7 @@ function goBack() {
   
   p {
     font-size: 13px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 16px;
   }
 }
@@ -391,7 +391,7 @@ function goBack() {
 
 .vip-option {
   flex: 1;
-  background: $bg-tertiary;
+  background: var(--bg-tertiary);
   border-radius: 8px;
   padding: 12px;
   text-align: center;
@@ -399,8 +399,8 @@ function goBack() {
   cursor: pointer;
   
   &.active {
-    border-color: $primary-color;
-    background: rgba($primary-color, 0.1);
+    border-color: var(--primary-color);
+    background: rgba(var(--primary-color), 0.1);
   }
 }
 
@@ -412,12 +412,12 @@ function goBack() {
 .vip-price {
   font-size: 20px;
   font-weight: 600;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .vip-tip {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: 4px;
 }
 
@@ -443,7 +443,7 @@ function goBack() {
   
   p {
     font-size: 13px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -455,14 +455,14 @@ function goBack() {
   
   .original {
     font-size: 13px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     text-decoration: line-through;
   }
   
   .current {
     font-size: 24px;
     font-weight: 600;
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
@@ -471,13 +471,13 @@ function goBack() {
   
   h3 {
     font-size: 14px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 12px;
   }
 }
 
 .payment-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -486,7 +486,7 @@ function goBack() {
   display: flex;
   align-items: center;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -494,7 +494,7 @@ function goBack() {
   }
   
   &.active {
-    background: rgba($primary-color, 0.05);
+    background: rgba(var(--primary-color), 0.05);
   }
 }
 
@@ -534,7 +534,7 @@ function goBack() {
 
 .balance-amount {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .coupon-section {
@@ -545,7 +545,7 @@ function goBack() {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
   cursor: pointer;
@@ -559,12 +559,12 @@ function goBack() {
 
 .coupon-count {
   font-size: 14px;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .amount-section {
   margin: 16px;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 16px;
 }
@@ -574,10 +574,10 @@ function goBack() {
   justify-content: space-between;
   margin-bottom: 12px;
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
   
   .discount {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
@@ -585,12 +585,12 @@ function goBack() {
   display: flex;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
   
   .total-price {
     font-size: 20px;
     font-weight: 600;
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
@@ -599,12 +599,12 @@ function goBack() {
   bottom: 0;
   left: 0;
   right: 0;
-  background: $bg-card;
+  background: var(--bg-card);
   padding: 12px 16px;
   display: flex;
   align-items: center;
   gap: 16px;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 
 .pay-info {
@@ -615,13 +615,13 @@ function goBack() {
 
 .pay-label {
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 .pay-amount {
   font-size: 24px;
   font-weight: 600;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 // 优惠券弹窗
@@ -635,7 +635,7 @@ function goBack() {
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   h3 {
     font-size: 16px;
@@ -651,20 +651,20 @@ function goBack() {
 
 .coupon-item {
   display: flex;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 8px;
   margin-bottom: 12px;
   overflow: hidden;
   border: 2px solid transparent;
   
   &.selected {
-    border-color: $primary-color;
+    border-color: var(--primary-color);
   }
 }
 
 .coupon-left {
   width: 100px;
-  background: linear-gradient(135deg, $primary-color 0%, #ff6b81 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b81 100%);
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -695,13 +695,13 @@ function goBack() {
 
 .coupon-condition {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .coupon-expire {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .coupon-check {
@@ -724,7 +724,7 @@ function goBack() {
   
   p {
     font-size: 14px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 24px;
   }
 }

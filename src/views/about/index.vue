@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="about-page">
     <!-- 头部 -->
     <header class="header">
@@ -72,7 +72,7 @@ function goBack() {
 <style lang="scss" scoped>
 .about-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 20px;
 }
 
@@ -82,12 +82,12 @@ function goBack() {
   left: 0;
   right: 0;
   height: 50px;
-  background: $bg-color;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .back-btn {
@@ -115,7 +115,7 @@ function goBack() {
 .logo {
   width: 80px;
   height: 80px;
-  background: rgba($primary-color, 0.1);
+  background: rgba(var(--primary-color), 0.1);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -131,13 +131,13 @@ h2 {
 
 .version {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .slogan {
   font-size: 14px;
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 .info-section, .link-section {
@@ -146,21 +146,21 @@ h2 {
 
 :deep(.van-cell-group--inset) {
   margin: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
 }
 
 :deep(.van-cell) {
   background: transparent;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-cell::after) {
-  border-color: $border-light;
+  border-color: var(--border-light);
 }
 
 :deep(.van-cell .van-cell__value) {
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .copyright {
@@ -169,7 +169,7 @@ h2 {
   
   p {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin-bottom: 4px;
   }
 }

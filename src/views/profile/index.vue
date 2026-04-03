@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="profile-page">
     <!-- 用户信息卡片 -->
     <div class="user-card">
@@ -69,6 +69,16 @@
     <div class="menu-section">
       <div class="section-title">更多功能</div>
       <van-cell-group inset>
+        <van-cell 
+          title="外观模式" 
+          icon="eye-o"
+          is-link 
+          @click="toggleTheme"
+        >
+          <template #value>
+            <span class="theme-value">{{ themeStore.isDark ? '深色模式' : '浅色模式' }}</span>
+          </template>
+        </van-cell>
         <van-cell title="帮助与反馈" icon="question-o" is-link @click="handleMenu('help')" />
         <van-cell title="设置" icon="setting-o" is-link @click="handleMenu('setting')" />
         <van-cell title="关于我们" icon="info-o" is-link @click="handleMenu('about')" />
@@ -85,8 +95,10 @@ import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { showToast } from 'vant'
 import BottomNav from '@/components/BottomNav.vue'
+import { useThemeStore } from '@/stores/theme'
 
 const router = useRouter()
+const themeStore = useThemeStore()
 
 const userInfo = reactive({
   name: '追剧小达人',
@@ -129,17 +141,21 @@ function handleMenu(type) {
     router.push(routes[type])
   }
 }
+
+function toggleTheme() {
+  themeStore.toggleTheme()
+}
 </script>
 
 <style lang="scss" scoped>
 .profile-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
   padding-bottom: 70px;
 }
 
 .user-card {
-  background: linear-gradient(180deg, $bg-secondary 0%, $bg-color 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
   padding: 40px $spacing-lg $spacing-xxl;
 }
 
@@ -151,7 +167,7 @@ function handleMenu(type) {
 }
 
 .user-avatar {
-  border: 2px solid $primary-color;
+  border: 2px solid var(--primary-color);
 }
 
 .user-detail {
@@ -166,14 +182,14 @@ function handleMenu(type) {
 
 .user-id {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .user-vip {
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  background: $vip-gradient;
+  background: var(--vip-gradient);
   padding: $spacing-xs $spacing-md;
   border-radius: $radius-round;
   font-size: 11px;
@@ -186,8 +202,8 @@ function handleMenu(type) {
   display: flex;
   justify-content: space-around;
   padding: $spacing-lg 0;
-  border-top: 1px solid $border-light;
-  border-bottom: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .stat-item {
@@ -203,12 +219,12 @@ function handleMenu(type) {
 
 .stat-label {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .vip-card {
   margin: $spacing-lg;
-  background: linear-gradient(135deg, $bg-tertiary 0%, $bg-secondary 100%);
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
   border-radius: $radius-lg;
   padding: $spacing-lg;
   display: flex;
@@ -226,7 +242,7 @@ function handleMenu(type) {
 .vip-icon {
   width: 48px;
   height: 48px;
-  background: $vip-gradient;
+  background: var(--vip-gradient);
   border-radius: $radius-lg;
   display: flex;
   align-items: center;
@@ -242,7 +258,7 @@ function handleMenu(type) {
   
   p {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -253,31 +269,42 @@ function handleMenu(type) {
 
 .section-title {
   font-size: 14px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: $spacing-md;
   padding-left: $spacing-xs;
 }
 
 :deep(.van-cell-group--inset) {
   margin: 0;
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: $radius-lg;
 }
 
 :deep(.van-cell) {
   background: transparent;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 :deep(.van-cell::after) {
-  border-color: $border-light;
+  border-color: var(--border-light);
 }
 
 :deep(.van-cell .van-cell__left-icon) {
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 :deep(.van-cell .van-cell__value) {
-  color: $text-tertiary;
+  color: var(--text-tertiary);
+}
+
+.theme-icon {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-right: 8px;
+}
+
+.theme-value {
+  font-size: 14px;
+  color: var(--text-tertiary);
 }
 </style>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="search-page">
     <!-- 搜索头部 -->
     <div class="search-header">
@@ -375,7 +375,7 @@ function goBack() {
 <style lang="scss" scoped>
 .search-page {
   min-height: 100vh;
-  background: $bg-color;
+  background: var(--bg-color);
 }
 
 .search-header {
@@ -383,27 +383,27 @@ function goBack() {
   top: 0;
   left: 0;
   right: 0;
-  background: $bg-color;
+  background: var(--bg-color);
   z-index: 100;
   
   :deep(.van-search) {
-    background: $bg-color;
+    background: var(--bg-color);
   }
   
   :deep(.van-search__content) {
-    background: $bg-secondary;
+    background: var(--bg-secondary);
   }
   
   :deep(.van-field__control) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-field__control::placeholder) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
   
   :deep(.van-search__action) {
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 
@@ -427,7 +427,7 @@ function goBack() {
     align-items: center;
     gap: 4px;
     font-size: 13px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -438,13 +438,13 @@ function goBack() {
 }
 
 .history-tag {
-  background: $bg-secondary;
-  color: $text-secondary;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   padding: 8px 16px;
 }
 
 .hot-list {
-  background: $bg-secondary;
+  background: var(--bg-secondary);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -453,7 +453,7 @@ function goBack() {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -468,7 +468,7 @@ function goBack() {
   justify-content: center;
   font-size: 14px;
   font-weight: 600;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-right: 12px;
   
   &.top {
@@ -492,7 +492,7 @@ function goBack() {
   
   .hot-count {
     font-size: 12px;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
 }
 
@@ -540,7 +540,7 @@ function goBack() {
 
 .recommend-meta {
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-top: 4px;
 }
 
@@ -549,19 +549,19 @@ function goBack() {
   padding-top: 54px;
   
   :deep(.van-tabs__nav) {
-    background: $bg-color;
+    background: var(--bg-color);
   }
   
   :deep(.van-tab) {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
   }
   
   :deep(.van-tab--active) {
-    color: $text-primary;
+    color: var(--text-primary);
   }
   
   :deep(.van-tabs__line) {
-    background: $primary-color;
+    background: var(--primary-color);
   }
 }
 
@@ -573,7 +573,7 @@ function goBack() {
   display: flex;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   cursor: pointer;
   
   &:last-child {
@@ -617,15 +617,15 @@ function goBack() {
   margin-bottom: 6px;
   
   :deep(.van-tag) {
-    background: $bg-secondary;
+    background: var(--bg-secondary);
     border-color: transparent;
-    color: $text-secondary;
+    color: var(--text-secondary);
   }
 }
 
 .drama-desc {
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -637,7 +637,7 @@ function goBack() {
   display: flex;
   gap: 12px;
   font-size: 11px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 
 .actor-item, .director-item {
@@ -645,7 +645,7 @@ function goBack() {
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid $border-light;
+  border-bottom: 1px solid var(--border-light);
   
   &:last-child {
     border-bottom: none;
@@ -666,12 +666,12 @@ function goBack() {
   display: flex;
   gap: 12px;
   font-size: 12px;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .actor-works, .director-works {
   font-size: 12px;
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 </style>
