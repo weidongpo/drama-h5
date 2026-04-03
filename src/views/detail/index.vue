@@ -6,7 +6,6 @@
       title="提示"
       :show-confirm-button="false"
       close-on-click-overlay
-      class="play-dialog"
     >
       <div class="play-dialog-content">
         <p class="dialog-message">本剧所有剧集均需VIP或付费观看，是否立即开通？</p>
@@ -273,15 +272,6 @@ async function handleVip() {
       height: 44px;
       font-size: 15px;
     }
-  }
-}
-
-// 弹窗样式覆盖
-:deep(.play-dialog) {
-  .van-dialog__header {
-    padding-top: 20px;
-    font-size: 17px;
-    font-weight: 600;
   }
 }
 
