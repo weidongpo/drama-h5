@@ -533,6 +533,7 @@ function handleMoreClick() {
   padding: 2px 6px;
   border-radius: $radius-sm;
   font-size: 10px;
+  color: #fff;
 }
 
 .drama-title {
