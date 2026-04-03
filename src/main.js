@@ -28,7 +28,8 @@ import {
   ShareSheet,
   Switch,
   TimePicker,
-  Rate
+  Rate,
+  Dialog
 } from 'vant'
 import 'vant/lib/index.css'
 
@@ -62,6 +63,7 @@ app.use(ShareSheet)
 app.use(Switch)
 app.use(TimePicker)
 app.use(Rate)
+app.use(Dialog)
 
 app.use(createPinia())
 app.use(router)
