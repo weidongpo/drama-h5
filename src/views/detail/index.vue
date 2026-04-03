@@ -266,12 +266,17 @@ async function handleVip() {
   
   .dialog-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     
     .van-button {
       flex: 1;
       height: 44px;
-      font-size: 14px;
+      font-size: 13px;
+      padding: 0 8px;
+      
+      &:last-child {
+        flex: 0.8;
+      }
     }
   }
 }
