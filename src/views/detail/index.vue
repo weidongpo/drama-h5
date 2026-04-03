@@ -1,5 +1,21 @@
 <template>
   <div class="detail-page">
+    <!-- 播放选择弹窗 -->
+    <van-dialog 
+      v-model:show="showPlayDialog" 
+      title="提示"
+      :show-confirm-button="false"
+      close-on-click-overlay
+    >
+      <div class="play-dialog-content">
+        <p class="dialog-message">本剧所有剧集均需VIP或付费观看，是否立即开通？</p>
+        <div class="dialog-buttons">
+          <van-button type="default" block @click="handleSingleBuy">单集购买</van-button>
+          <van-button type="warning" block @click="handleOpenVip">开通VIP</van-button>
+        </div>
+      </div>
+    </van-dialog>
+
     <!-- 顶部封面 -->
     <div class="detail-header">
       <div class="header-bg">
@@ -95,6 +111,7 @@ const drama = reactive({
 // 从 store 获取收藏状态
 const isFavorite = ref(false)
 const episodeList = ref([])
+const showPlayDialog = ref(false)
 
 // 本地模拟数据
 function getMockDramasLocal() {
@@ -148,21 +165,20 @@ function goBack() {
 }
 
 function handlePlay() {
-  // 没有免费剧集，点击播放也需要付费
-  showConfirmDialog({
-    title: '提示',
-    message: '本剧所有剧集均需VIP或付费观看，是否立即开通？',
-    confirmButtonText: '开通VIP',
-    cancelButtonText: '单集购买'
-  }).then(() => {
-    router.push('/pay?type=vip')
-  }).catch(() => {
-    // 点击取消跳转到单集购买
-    if (episodeList.value.length > 0) {
-      const firstEp = episodeList.value[0]
-      handleEpisode(firstEp)
-    }
-  })
+  showPlayDialog.value = true
+}
+
+function handleSingleBuy() {
+  showPlayDialog.value = false
+  if (episodeList.value.length > 0) {
+    const firstEp = episodeList.value[0]
+    handleEpisode(firstEp)
+  }
+}
+
+function handleOpenVip() {
+  showPlayDialog.value = false
+  router.push('/pay?type=vip')
 }
 
 function handleEpisode(ep) {
@@ -234,6 +250,23 @@ async function handleVip() {
   min-height: 100vh;
   background: $bg-color;
   padding-bottom: 80px;
+}
+
+.play-dialog-content {
+  padding: 20px;
+  
+  .dialog-message {
+    text-align: center;
+    color: $text-secondary;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .dialog-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 .detail-header {
