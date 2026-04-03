@@ -47,10 +47,10 @@ import { showConfirmDialog, showToast } from 'vant'
 const router = useRouter()
 
 const historyList = ref([
-  { id: 1, title: '豪门千金的逆袭人生', cover: '/drama-h5/images/dramas/drama-1.jpg', episode: 32, progress: 65, watchTime: '2小时前' },
-  { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-2.jpg', episode: 56, progress: 30, watchTime: '昨天' },
-  { id: 3, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-3.jpg', episode: 18, progress: 80, watchTime: '3天前' },
-  { id: 4, title: '闪婚后千亿总裁宠上天', cover: '/drama-h5/images/dramas/drama-4.jpg', episode: 12, progress: 45, watchTime: '5天前' }
+  { id: 1, title: '豪门千金的逆袭人生', cover: '/drama-h5/images/dramas/drama-8.jpg', episode: 32, progress: 65, watchTime: '2小时前' },
+  { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-9.jpg', episode: 56, progress: 30, watchTime: '昨天' },
+  { id: 3, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-10.jpg', episode: 18, progress: 80, watchTime: '3天前' },
+  { id: 4, title: '闪婚后千亿总裁宠上天', cover: '/drama-h5/images/dramas/drama-11.jpg', episode: 12, progress: 45, watchTime: '5天前' }
 ])
 
 function handlePlay(item) {

@@ -58,7 +58,7 @@ const downloadList = ref([
   { 
     id: 1, 
     title: '豪门千金的逆袭人生', 
-    cover: '/drama-h5/images/dramas/drama-1.jpg',
+    cover: '/drama-h5/images/dramas/drama-18.jpg',
     downloadedEpisodes: 20,
     totalEpisodes: 86,
     size: '1.2GB'
@@ -66,7 +66,7 @@ const downloadList = ref([
   { 
     id: 2, 
     title: '重生之商业女王', 
-    cover: '/drama-h5/images/dramas/drama-2.jpg',
+    cover: '/drama-h5/images/dramas/drama-19.jpg',
     downloadedEpisodes: 15,
     totalEpisodes: 98,
     size: '856MB'

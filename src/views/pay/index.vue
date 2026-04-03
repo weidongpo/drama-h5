@@ -256,7 +256,7 @@ onMounted(() => {
     orderInfo.value = {
       type: 'drama',
       title: title || '豪门千金的逆袭人生',
-      cover: cover || '/drama-h5/images/dramas/drama-1.jpg',
+      cover: cover || '/drama-h5/images/dramas/drama-12.jpg',
       episodes: episodes || 86,
       originalPrice: 29.9,
       price: parseFloat(price) || 19.9

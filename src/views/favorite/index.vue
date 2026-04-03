@@ -81,18 +81,18 @@ onMounted(() => {
   // 初始化收藏列表数据（如果 store 为空则设置默认数据）
   if (favoriteStore.favoriteDramas.length === 0) {
     favoriteStore.setFavoriteList([
-      { id: 1, title: '豪门千金的逆袭', cover: '/drama-h5/images/dramas/drama-1.jpg', views: '1.8亿', isVip: true, price: 29.9 },
-      { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-2.jpg', views: '1.2亿', isVip: false, price: 19.9 },
-      { id: 3, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-3.jpg', views: '9800万', isVip: true, price: 25.9 },
-      { id: 4, title: '总裁的替身新娘', cover: '/drama-h5/images/dramas/drama-4.jpg', views: '8500万', isVip: false, price: 18.9 },
-      { id: 5, title: '落魄千金复仇记', cover: '/drama-h5/images/dramas/drama-5.jpg', views: '7200万', isVip: true, price: 22.9 },
-      { id: 6, title: '隐世高手在都市', cover: '/drama-h5/images/dramas/drama-6.jpg', views: '6800万', isVip: false, price: 15.9 },
-      { id: 7, title: '消失的新娘', cover: '/drama-h5/images/dramas/drama-7.jpg', views: '5500万', isVip: true, price: 26.9 },
-      { id: 8, title: '迷雾追踪', cover: '/drama-h5/images/dramas/drama-8.jpg', views: '4800万', isVip: false, price: 19.9 },
-      { id: 9, title: '霸道总裁的小娇妻', cover: '/drama-h5/images/dramas/drama-9.jpg', views: '8900万', isVip: true, price: 27.9 },
-      { id: 10, title: '凤逆天下：废材七小姐', cover: '/drama-h5/images/dramas/drama-10.jpg', views: '9200万', isVip: true, price: 32.9 },
-      { id: 11, title: '绝世武神', cover: '/drama-h5/images/dramas/drama-11.jpg', views: '1.5亿', isVip: true, price: 35.9 },
-      { id: 12, title: '国民老公带回家', cover: '/drama-h5/images/dramas/drama-12.jpg', views: '7800万', isVip: false, price: 19.9 }
+      { id: 1, title: '豪门千金的逆袭', cover: '/drama-h5/images/dramas/drama-20.jpg', views: '1.8亿', isVip: true, price: 29.9 },
+      { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-21.jpg', views: '1.2亿', isVip: false, price: 19.9 },
+      { id: 3, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-22.jpg', views: '9800万', isVip: true, price: 25.9 },
+      { id: 4, title: '总裁的替身新娘', cover: '/drama-h5/images/dramas/drama-23.jpg', views: '8500万', isVip: false, price: 18.9 },
+      { id: 5, title: '落魄千金复仇记', cover: '/drama-h5/images/dramas/drama-24.jpg', views: '7200万', isVip: true, price: 22.9 },
+      { id: 6, title: '隐世高手在都市', cover: '/drama-h5/images/dramas/drama-1.jpg', views: '6800万', isVip: false, price: 15.9 },
+      { id: 7, title: '消失的新娘', cover: '/drama-h5/images/dramas/drama-2.jpg', views: '5500万', isVip: true, price: 26.9 },
+      { id: 8, title: '迷雾追踪', cover: '/drama-h5/images/dramas/drama-3.jpg', views: '4800万', isVip: false, price: 19.9 },
+      { id: 9, title: '霸道总裁的小娇妻', cover: '/drama-h5/images/dramas/drama-4.jpg', views: '8900万', isVip: true, price: 27.9 },
+      { id: 10, title: '凤逆天下：废材七小姐', cover: '/drama-h5/images/dramas/drama-5.jpg', views: '9200万', isVip: true, price: 32.9 },
+      { id: 11, title: '绝世武神', cover: '/drama-h5/images/dramas/drama-6.jpg', views: '1.5亿', isVip: true, price: 35.9 },
+      { id: 12, title: '国民老公带回家', cover: '/drama-h5/images/dramas/drama-7.jpg', views: '7800万', isVip: false, price: 19.9 }
     ])
   }
   

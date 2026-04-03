@@ -227,11 +227,11 @@ function loadHistory() {
 // 加载推荐
 function loadRecommend() {
   recommendList.value = [
-    { id: 1, title: '豪门千金的逆袭人生', cover: '/drama-h5/images/dramas/drama-1.jpg', views: '2.3亿', isVip: true },
-    { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-2.jpg', views: '1.8亿', isVip: true },
-    { id: 3, title: '总裁的替身新娘', cover: '/drama-h5/images/dramas/drama-3.jpg', views: '1.2亿', isVip: false },
-    { id: 4, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-4.jpg', views: '9800万', isVip: true },
-    { id: 5, title: '闪婚后千亿总裁宠上天', cover: '/drama-h5/images/dramas/drama-5.jpg', views: '8500万', isVip: false },
+    { id: 1, title: '豪门千金的逆袭人生', cover: '/drama-h5/images/dramas/drama-13.jpg', views: '2.3亿', isVip: true },
+    { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-14.jpg', views: '1.8亿', isVip: true },
+    { id: 3, title: '总裁的替身新娘', cover: '/drama-h5/images/dramas/drama-15.jpg', views: '1.2亿', isVip: false },
+    { id: 4, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-16.jpg', views: '9800万', isVip: true },
+    { id: 5, title: '闪婚后千亿总裁宠上天', cover: '/drama-h5/images/dramas/drama-17.jpg', views: '8500万', isVip: false },
     { id: 6, title: '落魄千金复仇记', cover: '/drama-h5/images/dramas/drama-6.jpg', views: '7200万', isVip: true }
   ]
 }
@@ -254,7 +254,7 @@ function handleSearch() {
     {
       id: 1,
       title: '豪门千金的逆袭人生',
-      cover: '/drama-h5/images/dramas/drama-7.jpg',
+      cover: '/drama-h5/images/dramas/drama-6.jpg',
       tags: ['都市', '逆袭', '甜宠'],
       description: '豪门千金苏晚晴被继母陷害，流落街头。五年后，她华丽归来...',
       views: '2.3亿',
@@ -265,7 +265,7 @@ function handleSearch() {
     {
       id: 2,
       title: '重生之豪门千金',
-      cover: '/drama-h5/images/dramas/drama-8.jpg',
+      cover: '/drama-h5/images/dramas/drama-7.jpg',
       tags: ['重生', '复仇', '爽剧'],
       description: '前世被渣男和闺蜜联手害死，重生归来，她发誓要让所有人付出代价...',
       views: '1.8亿',
