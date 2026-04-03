@@ -70,7 +70,7 @@ onMounted(() => {
     { 
       id: 1, 
       title: '豪门千金的逆袭人生', 
-      cover: 'https://picsum.photos/200/280?random=10',
+      cover: '/drama-h5/images/dramas/drama-1.jpg',
       episodes: 86,
       currentEpisode: 32,
       lastWatchTime: '2小时前',
@@ -80,7 +80,7 @@ onMounted(() => {
     { 
       id: 2, 
       title: '重生之商业女王', 
-      cover: 'https://picsum.photos/200/280?random=11',
+      cover: '/drama-h5/images/dramas/drama-2.jpg',
       episodes: 98,
       currentEpisode: 56,
       lastWatchTime: '昨天',
@@ -90,7 +90,7 @@ onMounted(() => {
     { 
       id: 3, 
       title: '总裁的替身新娘', 
-      cover: 'https://picsum.photos/200/280?random=12',
+      cover: '/drama-h5/images/dramas/drama-3.jpg',
       episodes: 65,
       currentEpisode: 18,
       lastWatchTime: '3天前',
@@ -100,7 +100,7 @@ onMounted(() => {
     { 
       id: 4, 
       title: '穿越之医妃倾天下', 
-      cover: 'https://picsum.photos/200/280?random=13',
+      cover: '/drama-h5/images/dramas/drama-4.jpg',
       episodes: 80,
       currentEpisode: 45,
       lastWatchTime: '5天前',
@@ -110,7 +110,7 @@ onMounted(() => {
     { 
       id: 5, 
       title: '消失的新娘', 
-      cover: 'https://picsum.photos/200/280?random=14',
+      cover: '/drama-h5/images/dramas/drama-5.jpg',
       episodes: 36,
       currentEpisode: 36,
       lastWatchTime: '1周前',
@@ -120,7 +120,7 @@ onMounted(() => {
     { 
       id: 6, 
       title: '霸道总裁的小娇妻', 
-      cover: 'https://picsum.photos/200/280?random=15',
+      cover: '/drama-h5/images/dramas/drama-6.jpg',
       episodes: 65,
       currentEpisode: 28,
       lastWatchTime: '1周前',
@@ -130,7 +130,7 @@ onMounted(() => {
     { 
       id: 7, 
       title: '凤逆天下：废材七小姐', 
-      cover: 'https://picsum.photos/200/280?random=16',
+      cover: '/drama-h5/images/dramas/drama-7.jpg',
       episodes: 96,
       currentEpisode: 72,
       lastWatchTime: '2周前',
@@ -140,7 +140,7 @@ onMounted(() => {
     { 
       id: 8, 
       title: '绝世武神', 
-      cover: 'https://picsum.photos/200/280?random=17',
+      cover: '/drama-h5/images/dramas/drama-8.jpg',
       episodes: 200,
       currentEpisode: 88,
       lastWatchTime: '2周前',

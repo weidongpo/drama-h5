@@ -185,14 +185,14 @@ const categories = computed(() => dramaStore.categories.filter(c => c.id !== 0))
 const currentCategory = computed(() => categories.value.find(c => c.id === activeCategory.value))
 
 const allDramas = ref([
-  { id: 1, title: '豪门千金的逆袭人生', cover: 'https://picsum.photos/300/400?random=100', views: '2.3亿', isVip: true, episodes: 86, status: 'completed', likes: '128万', rating: 9.2, description: '豪门千金苏晚晴被继母陷害，流落街头。五年后，她华丽归来...', tags: ['都市', '逆袭', '甜宠'] },
-  { id: 2, title: '重生之商业女王', cover: 'https://picsum.photos/300/400?random=101', views: '1.8亿', isVip: false, episodes: 98, status: 'updating', likes: '98万', rating: 9.0, description: '前世被渣男和闺蜜联手害死，重生归来...', tags: ['重生', '逆袭', '商战'] },
-  { id: 3, title: '穿越之医妃倾天下', cover: 'https://picsum.photos/300/400?random=102', views: '1.2亿', isVip: true, episodes: 80, status: 'completed', likes: '86万', rating: 8.8, description: '现代医学博士穿越成古代不受宠的嫡女...', tags: ['古装', '穿越', '医妃'] },
-  { id: 4, title: '闪婚后千亿总裁宠上天', cover: 'https://picsum.photos/300/400?random=103', views: '9800万', isVip: false, episodes: 42, status: 'updating', likes: '72万', rating: 8.5, description: '被继母逼婚，她一怒之下随便拉了个男人领证...', tags: ['甜宠', '霸总', '闪婚'] },
-  { id: 5, title: '落魄千金复仇记', cover: 'https://picsum.photos/300/400?random=104', views: '8500万', isVip: true, episodes: 60, status: 'completed', likes: '58万', rating: 8.6, description: '一夜之间家破人亡，她从天堂跌入地狱...', tags: ['复仇', '逆袭', '都市'] },
-  { id: 6, title: '隐世高手在都市', cover: 'https://picsum.photos/300/400?random=105', views: '7200万', isVip: false, episodes: 55, status: 'updating', likes: '45万', rating: 8.3, description: '隐世宗门传人下山历练...', tags: ['都市', '爽文', '热血'] },
-  { id: 7, title: '替身新娘：总裁的契约妻', cover: 'https://picsum.photos/300/400?random=106', views: '6800万', isVip: true, episodes: 72, status: 'completed', likes: '52万', rating: 8.4, description: '为了替妹妹还债，她被迫成为他的契约妻子...', tags: ['甜宠', '契约', '霸总'] },
-  { id: 8, title: '神医毒妃', cover: 'https://picsum.photos/300/400?random=107', views: '5800万', isVip: false, episodes: 68, status: 'updating', likes: '38万', rating: 8.2, description: '她是21世纪顶级毒医，一朝穿越成为被废的太子妃...', tags: ['古装', '穿越', '毒医'] }
+  { id: 1, title: '豪门千金的逆袭人生', cover: '/drama-h5/images/dramas/drama-1.jpg', views: '2.3亿', isVip: true, episodes: 86, status: 'completed', likes: '128万', rating: 9.2, description: '豪门千金苏晚晴被继母陷害，流落街头。五年后，她华丽归来...', tags: ['都市', '逆袭', '甜宠'] },
+  { id: 2, title: '重生之商业女王', cover: '/drama-h5/images/dramas/drama-2.jpg', views: '1.8亿', isVip: false, episodes: 98, status: 'updating', likes: '98万', rating: 9.0, description: '前世被渣男和闺蜜联手害死，重生归来...', tags: ['重生', '逆袭', '商战'] },
+  { id: 3, title: '穿越之医妃倾天下', cover: '/drama-h5/images/dramas/drama-3.jpg', views: '1.2亿', isVip: true, episodes: 80, status: 'completed', likes: '86万', rating: 8.8, description: '现代医学博士穿越成古代不受宠的嫡女...', tags: ['古装', '穿越', '医妃'] },
+  { id: 4, title: '闪婚后千亿总裁宠上天', cover: '/drama-h5/images/dramas/drama-4.jpg', views: '9800万', isVip: false, episodes: 42, status: 'updating', likes: '72万', rating: 8.5, description: '被继母逼婚，她一怒之下随便拉了个男人领证...', tags: ['甜宠', '霸总', '闪婚'] },
+  { id: 5, title: '落魄千金复仇记', cover: '/drama-h5/images/dramas/drama-5.jpg', views: '8500万', isVip: true, episodes: 60, status: 'completed', likes: '58万', rating: 8.6, description: '一夜之间家破人亡，她从天堂跌入地狱...', tags: ['复仇', '逆袭', '都市'] },
+  { id: 6, title: '隐世高手在都市', cover: '/drama-h5/images/dramas/drama-6.jpg', views: '7200万', isVip: false, episodes: 55, status: 'updating', likes: '45万', rating: 8.3, description: '隐世宗门传人下山历练...', tags: ['都市', '爽文', '热血'] },
+  { id: 7, title: '替身新娘：总裁的契约妻', cover: '/drama-h5/images/dramas/drama-7.jpg', views: '6800万', isVip: true, episodes: 72, status: 'completed', likes: '52万', rating: 8.4, description: '为了替妹妹还债，她被迫成为他的契约妻子...', tags: ['甜宠', '契约', '霸总'] },
+  { id: 8, title: '神医毒妃', cover: '/drama-h5/images/dramas/drama-8.jpg', views: '5800万', isVip: false, episodes: 68, status: 'updating', likes: '38万', rating: 8.2, description: '她是21世纪顶级毒医，一朝穿越成为被废的太子妃...', tags: ['古装', '穿越', '毒医'] }
 ])
 
 const dramaList = computed(() => {

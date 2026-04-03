@@ -78,19 +78,19 @@ const currentActivity = ref({
   id: 1,
   title: 'VIP年卡5折',
   subtitle: '限时特惠，错过再等一年',
-  banner: 'https://picsum.photos/800/400?random=200'
+  banner: '/drama-h5/images/activities/activity-1.jpg'
 })
 
 const limitedActivities = ref([
-  { id: 1, title: 'VIP年卡5折', image: 'https://picsum.photos/400/200?random=201', remainTime: '剩余23小时', reward: '限时5折' },
-  { id: 2, title: '新用户专享礼包', image: 'https://picsum.photos/400/200?random=202', remainTime: '剩余3天', reward: '送50积分' },
-  { id: 3, title: '邀请好友得奖励', image: 'https://picsum.photos/400/200?random=203', remainTime: '长期有效', reward: '双方各得20积分' }
+  { id: 1, title: 'VIP年卡5折', image: '/drama-h5/images/activities/activity-1.jpg', remainTime: '剩余23小时', reward: '限时5折' },
+  { id: 2, title: '新用户专享礼包', image: '/drama-h5/images/activities/activity-2.jpg', remainTime: '剩余3天', reward: '送50积分' },
+  { id: 3, title: '邀请好友得奖励', image: '/drama-h5/images/activities/activity-3.jpg', remainTime: '长期有效', reward: '双方各得20积分' }
 ])
 
 const normalActivities = ref([
-  { id: 4, title: '每日签到', image: 'https://picsum.photos/400/200?random=204', description: '连续签到7天额外奖励', reward: '最高50积分' },
-  { id: 5, title: '观看有礼', image: 'https://picsum.photos/400/200?random=205', description: '观看短剧获得积分', reward: '每集5积分' },
-  { id: 6, title: '分享有奖', image: 'https://picsum.photos/400/200?random=206', description: '分享短剧给好友', reward: '每次10积分' }
+  { id: 4, title: '每日签到', image: '/drama-h5/images/activities/activity-4.jpg', description: '连续签到7天额外奖励', reward: '最高50积分' },
+  { id: 5, title: '观看有礼', image: '/drama-h5/images/activities/activity-5.jpg', description: '观看短剧获得积分', reward: '每集5积分' },
+  { id: 6, title: '分享有奖', image: '/drama-h5/images/activities/activity-1.jpg', description: '分享短剧给好友', reward: '每次10积分' }
 ])
 
 function joinActivity(activity) {

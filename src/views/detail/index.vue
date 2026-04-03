@@ -80,7 +80,7 @@ const dramaData = computed(() => {
 const drama = reactive({
   id: dramaData.value?.id || 1,
   title: dramaData.value?.title || '豪门千金的逆袭人生',
-  cover: dramaData.value?.cover || 'https://picsum.photos/800/450?random=1',
+  cover: dramaData.value?.cover || '/drama-h5/images/banners/banner-1.jpg',
   description: dramaData.value?.description || '豪门千金苏晚晴被继母陷害...',
   tags: dramaData.value?.tags || ['都市', '逆袭', '甜宠', '霸总'],
   episodes: dramaData.value?.episodes || 86,
@@ -96,16 +96,16 @@ const episodeList = ref([])
 // 本地模拟数据
 function getMockDramasLocal() {
   return [
-    { id: 1, title: '豪门千金的逆袭人生', isVip: true, price: 29.9, episodes: 86, cover: 'https://picsum.photos/800/450?random=1', description: '豪门千金苏晚晴被继母陷害...', tags: ['都市', '逆袭'] },
-    { id: 2, title: '重生之商业女王', isVip: false, price: 19.9, episodes: 98, cover: 'https://picsum.photos/800/450?random=2', description: '前世被渣男和闺蜜联手害死...', tags: ['重生', '逆袭'] },
-    { id: 3, title: '穿越之医妃倾天下', isVip: true, price: 25.9, episodes: 80, cover: 'https://picsum.photos/800/450?random=3', description: '现代医学博士穿越成古代不受宠的嫡女...', tags: ['古装', '穿越'] },
-    { id: 4, title: '闪婚后千亿总裁宠上天', isVip: false, price: 18.9, episodes: 42, cover: 'https://picsum.photos/800/450?random=4', description: '被继母逼婚...', tags: ['甜宠', '霸总'] },
-    { id: 5, title: '落魄千金复仇记', isVip: true, price: 22.9, episodes: 60, cover: 'https://picsum.photos/800/450?random=5', description: '一夜之间家破人亡...', tags: ['复仇', '逆袭'] },
-    { id: 6, title: '隐世高手在都市', isVip: false, price: 15.9, episodes: 55, cover: 'https://picsum.photos/800/450?random=6', description: '隐世宗门传人下山历练...', tags: ['都市', '爽文'] },
-    { id: 7, title: '替身新娘：总裁的契约妻', isVip: true, price: 28.9, episodes: 72, cover: 'https://picsum.photos/800/450?random=7', description: '为了替妹妹还债...', tags: ['甜宠', '契约'] },
-    { id: 8, title: '神医毒妃', isVip: false, price: 16.9, episodes: 68, cover: 'https://picsum.photos/800/450?random=8', description: '她是21世纪顶级毒医...', tags: ['古装', '穿越'] },
-    { id: 9, title: '千亿宠婚：总裁大人求放过', isVip: true, price: 24.9, episodes: 45, cover: 'https://picsum.photos/800/450?random=9', description: '一场意外...', tags: ['甜宠', '霸总'] },
-    { id: 10, title: '消失的新娘', isVip: true, price: 26.9, episodes: 36, cover: 'https://picsum.photos/800/450?random=10', description: '婚礼当天新娘离奇失踪...', tags: ['悬疑', '推理'] }
+    { id: 1, title: '豪门千金的逆袭人生', isVip: true, price: 29.9, episodes: 86, cover: '/drama-h5/images/banners/banner-1.jpg', description: '豪门千金苏晚晴被继母陷害...', tags: ['都市', '逆袭'] },
+    { id: 2, title: '重生之商业女王', isVip: false, price: 19.9, episodes: 98, cover: '/drama-h5/images/banners/banner-2.jpg', description: '前世被渣男和闺蜜联手害死...', tags: ['重生', '逆袭'] },
+    { id: 3, title: '穿越之医妃倾天下', isVip: true, price: 25.9, episodes: 80, cover: '/drama-h5/images/banners/banner-3.jpg', description: '现代医学博士穿越成古代不受宠的嫡女...', tags: ['古装', '穿越'] },
+    { id: 4, title: '闪婚后千亿总裁宠上天', isVip: false, price: 18.9, episodes: 42, cover: '/drama-h5/images/banners/banner-4.jpg', description: '被继母逼婚...', tags: ['甜宠', '霸总'] },
+    { id: 5, title: '落魄千金复仇记', isVip: true, price: 22.9, episodes: 60, cover: '/drama-h5/images/banners/banner-5.jpg', description: '一夜之间家破人亡...', tags: ['复仇', '逆袭'] },
+    { id: 6, title: '隐世高手在都市', isVip: false, price: 15.9, episodes: 55, cover: '/drama-h5/images/banners/banner-1.jpg', description: '隐世宗门传人下山历练...', tags: ['都市', '爽文'] },
+    { id: 7, title: '替身新娘：总裁的契约妻', isVip: true, price: 28.9, episodes: 72, cover: '/drama-h5/images/banners/banner-1.jpg', description: '为了替妹妹还债...', tags: ['甜宠', '契约'] },
+    { id: 8, title: '神医毒妃', isVip: false, price: 16.9, episodes: 68, cover: '/drama-h5/images/banners/banner-2.jpg', description: '她是21世纪顶级毒医...', tags: ['古装', '穿越'] },
+    { id: 9, title: '千亿宠婚：总裁大人求放过', isVip: true, price: 24.9, episodes: 45, cover: '/drama-h5/images/banners/banner-3.jpg', description: '一场意外...', tags: ['甜宠', '霸总'] },
+    { id: 10, title: '消失的新娘', isVip: true, price: 26.9, episodes: 36, cover: '/drama-h5/images/banners/banner-4.jpg', description: '婚礼当天新娘离奇失踪...', tags: ['悬疑', '推理'] }
   ]
 }
 

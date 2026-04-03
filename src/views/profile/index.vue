@@ -91,7 +91,7 @@ const router = useRouter()
 const userInfo = reactive({
   name: '追剧小达人',
   id: '88866688',
-  avatar: 'https://picsum.photos/128/128?random=100',
+  avatar: '/drama-h5/images/actors/actor-1.jpg',
   isVip: true
 })
 
