@@ -241,6 +241,10 @@ async function handleVip() {
 .header-image {
   width: 100%;
   height: 100%;
+  
+  :deep(.van-image__img) {
+    object-position: top center;
+  }
 }
 
 .back-btn {
