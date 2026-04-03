@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   base: '/drama-h5/',
@@ -9,14 +10,14 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/variables.scss";`,
+        additionalData: `@import "@/styles/themes.scss";`,
         silenceDeprecations: ['import']
       }
     }
   },
   resolve: {
     alias: {
-      '@': '/src'
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   server: {
