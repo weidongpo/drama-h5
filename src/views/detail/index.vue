@@ -2,7 +2,10 @@
   <div class="detail-page">
     <!-- 顶部封面 -->
     <div class="detail-header">
-      <van-image :src="drama.cover" fit="cover" class="header-image" />
+      <div class="header-bg">
+        <van-image :src="drama.cover" fit="cover" class="bg-image" />
+      </div>
+      <van-image :src="drama.cover" fit="contain" class="header-image" />
       <div class="back-btn" @click="goBack">
         <van-icon name="arrow-left" size="20" color="#fff" />
       </div>
@@ -236,15 +239,31 @@ async function handleVip() {
 .detail-header {
   position: relative;
   aspect-ratio: 16/9;
+  background: #000;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(20px);
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
 }
 
 .header-image {
+  position: relative;
   width: 100%;
   height: 100%;
-  
-  :deep(.van-image__img) {
-    object-position: top center;
-  }
+  z-index: 1;
 }
 
 .back-btn {
