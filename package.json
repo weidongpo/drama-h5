@@ -1,0 +1,28 @@
+{
+  "name": "vision-theater",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "@vant/use": "^1.6.0",
+    "pinia": "^2.1.7",
+    "vant": "^4.8.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vant/auto-import-resolver": "^1.2.1",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "gh-pages": "^6.3.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "sass": "^1.72.0",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^6.2.4"
+  }
+}
