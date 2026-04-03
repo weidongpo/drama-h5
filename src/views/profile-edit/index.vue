@@ -123,7 +123,7 @@ import { showToast } from 'vant'
 const router = useRouter()
 
 const userInfo = reactive({
-  avatar: '/drama-h5/images/actors/actor-1.jpg',
+  avatar: '/drama-h5/images/default/avatar.jpg',
   name: '追剧小达人',
   signature: '热爱追剧，热爱生活',
   gender: 0,
