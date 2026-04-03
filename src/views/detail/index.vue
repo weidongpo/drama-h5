@@ -10,11 +10,9 @@
       <div class="play-dialog-content">
         <p class="dialog-message">本剧所有剧集均需VIP或付费观看，是否立即开通？</p>
         <div class="dialog-buttons">
-          <van-button type="default" round @click="handleSingleBuy">单集购买</van-button>
+          <van-button type="warning" round @click="handleSingleBuy">单集购买</van-button>
           <van-button type="danger" round @click="handleOpenVip">开通VIP</van-button>
-        </div>
-        <div class="dialog-cancel">
-          <van-button type="default" round block @click="showPlayDialog = false">取消</van-button>
+          <van-button type="default" round @click="showPlayDialog = false">取消</van-button>
         </div>
       </div>
     </van-dialog>
@@ -268,20 +266,12 @@ async function handleVip() {
   
   .dialog-buttons {
     display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
     
     .van-button {
       flex: 1;
       height: 44px;
-      font-size: 15px;
-    }
-  }
-  
-  .dialog-cancel {
-    .van-button {
-      height: 44px;
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 }
