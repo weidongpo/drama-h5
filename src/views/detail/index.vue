@@ -278,6 +278,7 @@ async function handleVip() {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 10;
 }
 
 .play-btn {
@@ -293,6 +294,7 @@ async function handleVip() {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 10;
   
   .van-icon {
     margin-left: 4px;
