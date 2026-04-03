@@ -152,9 +152,21 @@ const touchEndX = ref(0)
 const bannerListRef = ref(null)
 
 onMounted(async () => {
-  // 加载数据
-  banners.value = await dramaStore.fetchBanners()
-  recommendList.value = await dramaStore.fetchRecommend()
+  // 检查是否已初始化（有缓存数据）
+  if (dramaStore.initialized && dramaStore.recommendList.length > 0) {
+    // 使用缓存数据，不显示 loading
+    banners.value = dramaStore.banners.length > 0 ? dramaStore.banners : await dramaStore.fetchBanners()
+    recommendList.value = dramaStore.recommendList
+  } else {
+    // 首次加载，显示 loading
+    loading.value = true
+    try {
+      banners.value = await dramaStore.fetchBanners()
+      recommendList.value = await dramaStore.fetchRecommend()
+    } finally {
+      loading.value = false
+    }
+  }
 })
 
 // 触摸开始

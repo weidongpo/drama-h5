@@ -29,13 +29,22 @@ export const useDramaStore = defineStore('drama', () => {
   
   // 加载状态
   const loading = ref(false)
+  
+  // 是否已初始化（用于缓存判断）
+  const initialized = ref(false)
 
   // 获取推荐列表
   async function fetchRecommend(categoryId = 0) {
+    // 如果已初始化且是推荐分类，直接返回缓存数据
+    if (initialized.value && categoryId === 0 && recommendList.value.length > 0) {
+      return recommendList.value
+    }
+    
     loading.value = true
     try {
       const res = await dramaApi.getRecommend({ category: categoryId })
       recommendList.value = res.data || []
+      initialized.value = true
       return res.data
     } catch (error) {
       console.error('获取推荐失败:', error)
@@ -57,6 +66,7 @@ export const useDramaStore = defineStore('drama', () => {
         }
       }
       
+      initialized.value = true
       return recommendList.value
     } finally {
       loading.value = false
@@ -109,6 +119,7 @@ export const useDramaStore = defineStore('drama', () => {
     currentCategory,
     currentDrama,
     loading,
+    initialized,
     fetchRecommend,
     fetchBanners,
     fetchDetail,
