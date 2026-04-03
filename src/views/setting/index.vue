@@ -42,9 +42,7 @@
       </van-cell-group>
     </div>
 
-    <div class="logout-section">
-      <van-button type="danger" block round @click="handleLogout">退出登录</van-button>
-    </div>
+
   </div>
 </template>
 
@@ -88,19 +86,6 @@ async function clearCache() {
 
 function checkUpdate() {
   showToast('已是最新版本')
-}
-
-async function handleLogout() {
-  try {
-    await showConfirmDialog({
-      title: '提示',
-      message: '确定退出登录？'
-    })
-    showToast('已退出')
-    router.replace('/')
-  } catch {
-    // 取消
-  }
 }
 
 function goBack() {
@@ -182,7 +167,4 @@ function goBack() {
   color: $text-tertiary;
 }
 
-.logout-section {
-  padding: 32px 16px;
-}
 </style>

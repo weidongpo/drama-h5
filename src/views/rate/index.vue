@@ -13,7 +13,7 @@
       <div class="logo">
         <van-icon name="video" size="48" color="#ff4757" />
       </div>
-      <h3>喜欢追剧达人吗？</h3>
+      <h3>喜欢视界剧场吗？</h3>
       <p class="desc">您的支持是我们前进的动力！</p>
       
       <!-- 评分 -->
@@ -30,7 +30,7 @@
       
       <!-- 评价标签 -->
       <div class="tags-section" v-if="rating >= 4">
-        <div class="section-title">您喜欢追剧达人的哪些方面？</div>
+        <div class="section-title">您喜欢视界剧场的哪些方面？</div>
         <div class="tags-list">
           <div 
             class="tag-item" 
@@ -63,7 +63,7 @@
       
       <!-- 去应用商店评分 -->
       <div class="store-rating" v-if="rating >= 4">
-        <p>如果您喜欢追剧达人，请到应用商店给我们评分吧！</p>
+        <p>如果您喜欢视界剧场，请到应用商店给我们评分吧！</p>
         <van-button plain round @click="goToStore">去应用商店评分</van-button>
       </div>
     </div>

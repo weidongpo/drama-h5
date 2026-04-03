@@ -2,7 +2,7 @@
   <div class="home-page">
     <!-- 顶部导航 -->
     <header class="header">
-      <div class="header-title">🔥 追剧达人</div>
+      <div class="header-title">🔥 视界剧场</div>
       <div class="header-icons">
         <van-icon name="bell" size="24" color="#fff" @click="handleNotification" />
         <van-icon name="user-o" size="24" color="#fff" @click="goProfile" />

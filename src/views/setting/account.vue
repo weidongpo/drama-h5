@@ -28,7 +28,7 @@
             <span :class="{ 'text-warning': !hasPayPassword }">{{ hasPayPassword ? '已设置' : '未设置' }}</span>
           </template>
         </van-cell>
-        <van-cell title="登录设备管理" is-link @click="router.push('/setting/devices')" />
+
       </van-cell-group>
     </div>
 

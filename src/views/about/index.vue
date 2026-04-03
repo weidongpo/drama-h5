@@ -13,7 +13,7 @@
       <div class="logo">
         <van-icon name="video" size="48" color="#ff4757" />
       </div>
-      <h2>追剧达人</h2>
+      <h2>视界剧场</h2>
       <p class="version">v1.0.0</p>
       <p class="slogan">海量短剧，精彩不断</p>
     </div>
@@ -21,9 +21,9 @@
     <!-- 信息 -->
     <div class="info-section">
       <van-cell-group inset>
-        <van-cell title="应用名称" value="追剧达人" />
+        <van-cell title="应用名称" value="视界剧场" />
         <van-cell title="版本号" value="v1.0.0" />
-        <van-cell title="开发商" value="追剧科技有限公司" />
+        <van-cell title="开发商" value="视界剧场科技有限公司" />
         <van-cell title="客服电话" value="400-888-8888" @click="callService" />
         <van-cell title="官方邮箱" value="service@drama.com" @click="sendEmail" />
       </van-cell-group>
@@ -40,7 +40,7 @@
 
     <!-- 版权 -->
     <div class="copyright">
-      <p>Copyright © 2026 追剧科技有限公司</p>
+      <p>Copyright © 2026 视界剧场科技有限公司</p>
       <p>All Rights Reserved</p>
     </div>
   </div>

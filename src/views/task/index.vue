@@ -160,7 +160,7 @@ onMounted(() => {
       id: 6, 
       icon: '👥', 
       name: '邀请好友', 
-      desc: '邀请5位好友注册', 
+      desc: '邀请5位好友', 
       reward: 200,
       progress: 1,
       total: 5,

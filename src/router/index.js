@@ -190,12 +190,7 @@ const routes = [
     component: () => import('@/views/setting/download.vue'),
     meta: { title: '下载设置' }
   },
-  {
-    path: '/setting/devices',
-    name: 'SettingDevices',
-    component: () => import('@/views/setting/devices.vue'),
-    meta: { title: '登录设备管理' }
-  }
+
 ]
 
 const router = createRouter({
@@ -204,7 +199,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title ? `${to.meta.title} - 追剧达人` : '追剧达人'
+  document.title = to.meta.title ? `${to.meta.title} - 视界剧场` : '视界剧场'
   next()
 })
 

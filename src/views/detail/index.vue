@@ -61,10 +61,12 @@ import { ref, reactive, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { showToast, showConfirmDialog } from 'vant'
 import { useDramaStore } from '@/stores/drama'
+import { useFavoriteStore } from '@/stores/favorite'
 
 const route = useRoute()
 const router = useRouter()
 const dramaStore = useDramaStore()
+const favoriteStore = useFavoriteStore()
 
 // 从store获取短剧数据
 const dramaId = computed(() => Number(route.params.id) || 1)
@@ -87,6 +89,7 @@ const drama = reactive({
   vipPrice: 9.9
 })
 
+// 从 store 获取收藏状态
 const isFavorite = ref(false)
 const episodeList = ref([])
 
@@ -119,6 +122,9 @@ onMounted(() => {
     drama.isVip = data.isVip
     drama.price = data.price
   }
+  
+  // 从 store 初始化收藏状态
+  isFavorite.value = favoriteStore.isFavorite(drama.id)
   
   // 根据短剧类型生成剧集列表
   const episodes = []
@@ -181,8 +187,20 @@ function handleEpisode(ep) {
 }
 
 async function handleFavorite() {
-  isFavorite.value = !isFavorite.value
-  showToast(isFavorite.value ? '已收藏' : '已取消收藏')
+  // 构造短剧数据用于收藏
+  const dramaInfo = {
+    id: drama.id,
+    title: drama.title,
+    cover: drama.cover,
+    views: drama.views || '0',
+    isVip: drama.isVip,
+    price: drama.price
+  }
+  
+  // 通过 store 切换收藏状态
+  const newState = favoriteStore.toggleFavorite(dramaInfo)
+  isFavorite.value = newState
+  showToast(newState ? '已收藏' : '已取消收藏')
 }
 
 function handleShare() {
